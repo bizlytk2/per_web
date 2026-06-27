@@ -232,8 +232,6 @@ function About() {
 }
 
 /* ---------- Research (with interactive filtering) ---------- */
-const venues = [...new Set(publications.map(p => p.venue))]
-
 function Research() {
   // filter = { type: 'all' | 'focus' | 'venue', value: string }
   const [filter, setFilter] = useState({ type: 'all', value: null })
@@ -282,12 +280,6 @@ function Research() {
                 <button key={f} className={`fchip ${isActive('focus', f) ? 'on' : ''}`} onClick={() => toggle('focus', f)}>{f}</button>
               ))}
             </div>
-            <span className="eyebrow" style={{ marginTop: 22, display: 'inline-flex' }}>Explore by journal</span>
-            <div className="filter-group">
-              {venues.map(v => (
-                <button key={v} className={`fchip cool ${isActive('venue', v) ? 'on' : ''}`} onClick={() => toggle('venue', v)}>{v}</button>
-              ))}
-            </div>
           </div>
         </Reveal>
       </div>
@@ -309,8 +301,7 @@ function Research() {
                 <PaperLink url={p.url} className="pub-title-link"><h4>{p.title} {p.url && <span className="ext">↗</span>}</h4></PaperLink>
                 <div className="auth">{p.authors}</div>
                 <div className="venue">
-                  <button className="venue-link" onClick={() => toggle('venue', p.venue)}>{p.venue}</button>
-                  {p.detail ? ` · ${p.detail}` : ''}
+                  <em>{p.venue}</em>{p.detail ? ` · ${p.detail}` : ''}
                 </div>
                 {p.focus && (
                   <div className="tags">
