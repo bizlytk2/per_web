@@ -16,12 +16,12 @@ export const profile = {
   interests: ['Corporate Finance', 'Digital Finance', 'FinTech', 'Corporate Innovation', 'Governance'],
 }
 
-// Bio — EXACT text supplied by Yen Teik. Do not edit.
+// Bio — first-person, per Yen Teik. Facts unchanged from supplied text.
 export const bio = [
-  'Yen Teik is a Senior Lecturer at NUS Business School and Deputy Academic Director of the EMBA-Chinese Programme. He teaches and mentors students in corporate and digital finance, from undergraduate to executive level.',
-  'His teaching has won the NUS Annual Teaching Excellence Award and the NUS Business School Teaching Excellence Award in 2024, 2025, and 2026, and the Shanghai University of Finance and Economics (SUFE) Teaching Excellence Award in 2015.',
-  "He researches how people make everyday financial decisions, including what they will pay for liquidity. His work has appeared in the Journal of Corporate Finance, Research Policy, and the Journal of Management Studies, and won the Best Paper in Corporate Finance award at the Society for Financial Studies Finance Cavalcade in 2013. It has been featured by Kellogg Insight, the BBC World Service, The Economist, and Columbia Law School's Blue Sky Blog, and his commentary has appeared in The Straits Times, CNA, and The Business Times.",
-  "Before NUS, he was an Assistant Professor of Finance at the Asia School of Business and SUFE, a Senior Lecturer at Curtin Singapore, and a visiting scholar at New York University's Stern School of Business and Cambridge Judge Business School. He holds a PhD in Business (Finance) from Singapore Management University.",
+  'I am a Senior Lecturer at NUS Business School and Deputy Academic Director of the EMBA-Chinese Programme. I teach and mentor students in corporate and digital finance, from undergraduate to executive level.',
+  'My teaching has won the NUS Annual Teaching Excellence Award and the NUS Business School Teaching Excellence Award in 2024, 2025, and 2026, and the Shanghai University of Finance and Economics (SUFE) Teaching Excellence Award in 2015.',
+  "I research how people make everyday financial decisions, including what they will pay for liquidity. My work has appeared in the Journal of Corporate Finance, Research Policy, and the Journal of Management Studies, and won the Best Paper in Corporate Finance award at the Society for Financial Studies Finance Cavalcade in 2013. It has been featured by Kellogg Insight, the BBC World Service, The Economist, and Columbia Law School's Blue Sky Blog, and my commentary has appeared in The Straits Times, CNA, and The Business Times.",
+  "Before NUS, I was an Assistant Professor of Finance at the Asia School of Business and SUFE, a Senior Lecturer at Curtin Singapore, and a visiting scholar at New York University's Stern School of Business and Cambridge Judge Business School. I hold a PhD in Business (Finance) from Singapore Management University.",
 ]
 
 export const stats = [
