@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { motion, useScroll, useSpring, useTransform, useInView, animate } from 'framer-motion'
 import {
-  profile, stats, researchPhilosophy, publications, workingPapers,
-  teachingPhilosophy, teachingImpact, teachingBreadth, teachingInitiatives,
+  profile, bio, stats, focusAreas, researchPhilosophy, publications, workingPapers,
+  teachingPhilosophy, teachingImpact, teachingScholarship, teachingBreadth, teachingInitiatives,
   media, appointments, education, skills, cvFile,
 } from './data.js'
 
@@ -113,6 +113,7 @@ function Counter({ value, suffix = '', raw = false }) {
 
 /* ---------- Nav ---------- */
 const NAV = [
+  ['About', '#about'],
   ['Research', '#research'],
   ['Teaching', '#teaching'],
   ['Media', '#media'],
@@ -211,8 +212,56 @@ function Stats() {
   )
 }
 
-/* ---------- Research ---------- */
+/* ---------- About / Bio ---------- */
+function About() {
+  return (
+    <section id="about" className="wrap">
+      <Reveal>
+        <span className="eyebrow">00 — About</span>
+        <h2 className="section-title">Who I <span className="grad-text">am</span></h2>
+      </Reveal>
+      <div className="bio">
+        {bio.map((p, i) => (
+          <Reveal key={i} delay={i * 0.06}>
+            <p className={i === 0 ? 'bio-lead' : ''}>{p}</p>
+          </Reveal>
+        ))}
+      </div>
+    </section>
+  )
+}
+
+/* ---------- Research (with interactive filtering) ---------- */
+const venues = [...new Set(publications.map(p => p.venue))]
+
 function Research() {
+  // filter = { type: 'all' | 'focus' | 'venue', value: string }
+  const [filter, setFilter] = useState({ type: 'all', value: null })
+  const isActive = (type, value) => filter.type === type && filter.value === value
+  const toggle = (type, value) =>
+    setFilter(f => (f.type === type && f.value === value ? { type: 'all', value: null } : { type, value }))
+  const clear = () => setFilter({ type: 'all', value: null })
+
+  const pubs = publications.filter(p => {
+    if (filter.type === 'all') return true
+    if (filter.type === 'focus') return p.focus?.includes(filter.value)
+    if (filter.type === 'venue') return p.venue === filter.value
+    return true
+  })
+  const wps = workingPapers.filter(p => {
+    if (filter.type === 'all') return true
+    if (filter.type === 'focus') return p.focus?.includes(filter.value)
+    return false // venue filter doesn't apply to working papers
+  })
+  const showWP = filter.type !== 'venue'
+
+  const PaperLink = ({ url, children, className }) =>
+    url ? (
+      <a className={className} href={url} target="_blank" rel="noopener noreferrer">{children}</a>
+    ) : (
+      <span className={className}>{children}</span>
+    )
+
   return (
     <section id="research" className="wrap">
       <Reveal>
@@ -225,52 +274,80 @@ function Research() {
             <Reveal key={i} delay={i * 0.08}><p>{p}</p></Reveal>
           ))}
         </div>
-        <div className="prose">
-          <Reveal delay={0.1}>
-            <div className="card">
-              <span className="eyebrow">Focus areas</span>
-              <div className="tags" style={{ marginTop: 18 }}>
-                {['Corporate Finance', 'Digital Finance', 'FinTech Lending', 'Board Diversity', 'Corporate Innovation', 'Governance', 'Political Connections', 'Household Finance'].map(t => (
-                  <span className="tag" key={t}>{t}</span>
-                ))}
-              </div>
-              <p style={{ marginTop: 22, marginBottom: 0 }}>
-                Published in <em style={{ color: 'var(--cyan)', fontStyle: 'normal' }}>Research Policy</em>, the <em style={{ color: 'var(--cyan)', fontStyle: 'normal' }}>Journal of Corporate Finance</em>, the <em style={{ color: 'var(--cyan)', fontStyle: 'normal' }}>Journal of Management Studies</em>, and more.
-              </p>
+        <Reveal delay={0.1}>
+          <div className="card filter-card">
+            <span className="eyebrow">Explore by focus area</span>
+            <div className="filter-group">
+              {focusAreas.map(f => (
+                <button key={f} className={`fchip ${isActive('focus', f) ? 'on' : ''}`} onClick={() => toggle('focus', f)}>{f}</button>
+              ))}
             </div>
-          </Reveal>
-        </div>
+            <span className="eyebrow" style={{ marginTop: 22, display: 'inline-flex' }}>Explore by journal</span>
+            <div className="filter-group">
+              {venues.map(v => (
+                <button key={v} className={`fchip cool ${isActive('venue', v) ? 'on' : ''}`} onClick={() => toggle('venue', v)}>{v}</button>
+              ))}
+            </div>
+          </div>
+        </Reveal>
       </div>
 
-      <Reveal><h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.8rem', margin: '70px 0 28px', fontWeight: 600 }}>Selected publications</h3></Reveal>
+      <div className="list-head">
+        <h3>Selected publications</h3>
+        {filter.type !== 'all' && (
+          <button className="clear-filter" onClick={clear}>
+            Filtering: <b>{filter.value}</b> <span aria-hidden>×</span>
+          </button>
+        )}
+      </div>
       <div className="pub-list">
-        {publications.map((p, i) => (
-          <Reveal key={i} delay={Math.min(i * 0.05, 0.3)}>
+        {pubs.map((p) => (
+          <Reveal key={p.title} delay={0}>
             <article className="pub">
               <div className="yr">{p.year}</div>
               <div>
-                <h4>{p.title}</h4>
+                <PaperLink url={p.url} className="pub-title-link"><h4>{p.title} {p.url && <span className="ext">↗</span>}</h4></PaperLink>
                 <div className="auth">{p.authors}</div>
-                <div className="venue"><em>{p.venue}</em>{p.detail ? ` · ${p.detail}` : ''}</div>
-                {p.tags && <div className="tags">{p.tags.map(t => <span className="tag" key={t}>{t}</span>)}</div>}
+                <div className="venue">
+                  <button className="venue-link" onClick={() => toggle('venue', p.venue)}>{p.venue}</button>
+                  {p.detail ? ` · ${p.detail}` : ''}
+                </div>
+                {p.focus && (
+                  <div className="tags">
+                    {p.focus.map(t => (
+                      <button key={t} className={`tag tag-btn ${isActive('focus', t) ? 'on' : ''}`} onClick={() => toggle('focus', t)}>{t}</button>
+                    ))}
+                  </div>
+                )}
               </div>
             </article>
           </Reveal>
         ))}
+        {pubs.length === 0 && <p className="empty-note">No publications in this filter.</p>}
       </div>
 
-      <Reveal><h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.8rem', margin: '70px 0 28px', fontWeight: 600 }}>Working papers</h3></Reveal>
-      <div className="wp-grid">
-        {workingPapers.map((p, i) => (
-          <Reveal key={i} delay={Math.min(i * 0.06, 0.24)}>
-            <article className="card wp">
-              <h4>{p.title}</h4>
-              <div className="auth">{p.authors}</div>
-              <span className="status">{p.status}</span>
-            </article>
-          </Reveal>
-        ))}
-      </div>
+      {showWP && (
+        <>
+          <Reveal><h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.8rem', margin: '70px 0 28px', fontWeight: 600 }}>Working papers</h3></Reveal>
+          <div className="wp-grid">
+            {wps.map((p) => (
+              <Reveal key={p.title} delay={0}>
+                <article className="card wp">
+                  <PaperLink url={p.url} className="pub-title-link"><h4>{p.title} {p.url && <span className="ext">↗</span>}</h4></PaperLink>
+                  <div className="auth">{p.authors}</div>
+                  <div className="tags" style={{ marginTop: 10 }}>
+                    {p.focus.map(t => (
+                      <button key={t} className={`tag tag-btn ${isActive('focus', t) ? 'on' : ''}`} onClick={() => toggle('focus', t)}>{t}</button>
+                    ))}
+                  </div>
+                  <span className="status">{p.status}</span>
+                </article>
+              </Reveal>
+            ))}
+            {wps.length === 0 && <p className="empty-note">No working papers in this filter.</p>}
+          </div>
+        </>
+      )}
     </section>
   )
 }
@@ -295,6 +372,17 @@ function Teaching() {
               ))}
             </ul>
           </Reveal>
+          <Reveal delay={0.28}>
+            <div className="scholarship">
+              <span className="eyebrow" style={{ display: 'inline-flex' }}>Teaching scholarship</span>
+              {teachingScholarship.map((s, i) => (
+                <a key={i} className="scholarship-item" href={s.url} target="_blank" rel="noopener noreferrer">
+                  <span className="arrow">↗</span>
+                  <span><b>{s.title}</b><span className="note">{s.note}</span></span>
+                </a>
+              ))}
+            </div>
+          </Reveal>
         </div>
         <div>
           <Reveal>
@@ -307,18 +395,22 @@ function Teaching() {
               ))}
             </div>
           </Reveal>
-          <Reveal delay={0.12}>
-            <div className="breadth" style={{ marginTop: 24 }}>
-              {teachingBreadth.map((b, i) => (
-                <div className="breadth-row" key={i}>
-                  <div className="lvl">{b.level}</div>
-                  <div className="cs">{b.courses.map(c => <span key={c}>{c}</span>)}</div>
-                </div>
-              ))}
-            </div>
-          </Reveal>
         </div>
       </div>
+
+      <Reveal delay={0.1}>
+        <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.6rem', margin: '64px 0 22px', fontWeight: 600 }}>
+          Courses taught across programmes
+        </h3>
+        <div className="breadth breadth-full">
+          {teachingBreadth.map((b, i) => (
+            <div className="breadth-row" key={i}>
+              <div className="lvl">{b.level}</div>
+              <div className="cs">{b.courses.map(c => <span key={c}>{c}</span>)}</div>
+            </div>
+          ))}
+        </div>
+      </Reveal>
     </section>
   )
 }
@@ -331,7 +423,7 @@ function Media() {
         <span className="eyebrow">03 — Media & Commentary</span>
         <h2 className="section-title">Finance, <span className="grad-text">in public</span></h2>
         <p className="lede" style={{ maxWidth: 620, marginBottom: 50 }}>
-          Commentary on the issues shaping money in everyday life — from cashless payments and memecoins to bank outages, cyber insurance, and political favoritism.
+          Selected commentary on the money questions people actually face — cashless payments and memecoins, bank outages and cyber insurance, and whether powerful politicians favour their friends.
         </p>
       </Reveal>
       <div className="media-grid">
@@ -441,6 +533,7 @@ export default function App() {
       <main>
         <Hero />
         <Stats />
+        <About />
         <Research />
         <Teaching />
         <Media />

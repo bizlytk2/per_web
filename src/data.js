@@ -6,9 +6,7 @@ export const profile = {
   org: 'NUS Business School',
   roleLine: 'Deputy Academic Director, NUS Executive MBA (Chinese)',
   tagline:
-    'Corporate finance and digital finance — where capital, governance, technology, and human behaviour collide.',
-  intro:
-    'I study how firms raise, govern, and deploy capital in a world being rewritten by technology — from board diversity and corporate innovation to fintech lending and the financial lives of ordinary people. Alongside the research, I build classrooms (and AI teaching tools) that turn finance into something people can actually use.',
+    'I study how people and firms make financial decisions — and how technology is rewriting the rules of money.',
   email: 'yenteik@nus.edu.sg',
   phone: '+65 6516 6693',
   location: 'Singapore',
@@ -18,27 +16,49 @@ export const profile = {
   interests: ['Corporate Finance', 'Digital Finance', 'FinTech', 'Corporate Innovation', 'Governance'],
 }
 
+// Bio — EXACT text supplied by Yen Teik. Do not edit.
+export const bio = [
+  'Yen Teik is a Senior Lecturer at NUS Business School and Deputy Academic Director of the EMBA-Chinese Programme. He teaches and mentors students in corporate and digital finance, from undergraduate to executive level.',
+  'His teaching has won the NUS Annual Teaching Excellence Award and the NUS Business School Teaching Excellence Award in 2024, 2025, and 2026, and the Shanghai University of Finance and Economics (SUFE) Teaching Excellence Award in 2015.',
+  "He researches how people make everyday financial decisions, including what they will pay for liquidity. His work has appeared in the Journal of Corporate Finance, Research Policy, and the Journal of Management Studies, and won the Best Paper in Corporate Finance award at the Society for Financial Studies Finance Cavalcade in 2013. It has been featured by Kellogg Insight, the BBC World Service, The Economist, and Columbia Law School's Blue Sky Blog, and his commentary has appeared in The Straits Times, CNA, and The Business Times.",
+  "Before NUS, he was an Assistant Professor of Finance at the Asia School of Business and SUFE, a Senior Lecturer at Curtin Singapore, and a visiting scholar at New York University's Stern School of Business and Cambridge Judge Business School. He holds a PhD in Business (Finance) from Singapore Management University.",
+]
+
 export const stats = [
   { value: 8, suffix: '', label: 'Peer-reviewed publications' },
+  { value: 3, suffix: '', label: 'FT50 publications' },
   { value: 4, suffix: '', label: 'Working papers in the pipeline' },
   { value: 5, suffix: '', label: 'Universities taught across' },
-  { value: 2024, suffix: '–30', label: 'NUS Teaching Excellence Honour Roll', raw: true },
+  { value: 2026, suffix: '–30', label: 'NUS Teaching Excellence Honour Roll', raw: true },
+]
+
+// Focus areas used for interactive filtering (FinTech Lending dropped).
+export const focusAreas = [
+  'Corporate Finance',
+  'Digital Finance',
+  'Corporate Innovation',
+  'Board Diversity',
+  'Governance',
+  'Political Connections',
+  'Household Finance',
 ]
 
 export const researchPhilosophy = [
-  'Good finance research starts with a real friction — something that genuinely shapes how capital moves or how people decide — and then finds a setting clean enough to measure it.',
-  'My work runs along two currents. The first is corporate finance and innovation: how governance, board composition, clawbacks, and political connections shape what firms invent and how they perform. The second is digital finance: how fintech platforms, cashless rails, and AI change the financial behaviour of firms and households alike.',
-  'I lean on natural experiments, regulatory regime changes, and large-scale data to draw credible causal lines — and I care that the answer matters to a regulator, a board, or a borrower, not just a referee.',
+  'Good research starts with a real friction — something that shapes how capital moves or how people decide — and a setting clean enough to measure it.',
+  'My work follows two threads. One is corporate finance and innovation: how boards, clawbacks, and political ties shape what firms build and how they perform. The other is digital finance: how fintech platforms, cashless payments, and AI reshape the financial lives of firms and households.',
+  'I rely on natural experiments, regulatory shifts, and large-scale data to draw causal lines that hold. And I write for the people a result touches — a regulator, a board, a borrower — not only for the referee.',
 ]
 
-// Publications — newest first, as listed on the CV.
+// Publications — newest first, as listed on the CV. `focus` drives filtering.
 export const publications = [
   {
     title: 'From Pitch to Progress: The Interplay of Team Reputation and Governance in Crowdfunded Innovation',
     authors: 'with Xin Deng, Qi Sun, Yu Yan',
     venue: 'Research Policy',
+    detail: 'Forthcoming, 2026',
     year: 2026,
-    tags: ['Crowdfunding', 'Innovation', 'Governance'],
+    url: 'https://doi.org/10.2139/ssrn.5701723',
+    focus: ['Digital Finance', 'Corporate Innovation', 'Governance'],
   },
   {
     title: 'Interfaces, Social Information Processing, and Diversity Cascades: How Board Diversity Influences Invention Output',
@@ -46,7 +66,8 @@ export const publications = [
     venue: 'Research Policy',
     detail: 'Vol 54(1)',
     year: 2025,
-    tags: ['Board Diversity', 'Innovation'],
+    url: 'https://doi.org/10.1016/j.respol.2024.105148',
+    focus: ['Board Diversity', 'Corporate Innovation'],
   },
   {
     title: 'How Deep-Level and Surface-Level Board Diversity, Formal and Informal Social Structures Affect Innovation',
@@ -54,7 +75,8 @@ export const publications = [
     venue: 'Journal of Management Studies',
     detail: 'Vol 62(1), 65–101',
     year: 2025,
-    tags: ['Board Diversity', 'Innovation'],
+    url: 'https://doi.org/10.1111/joms.13040',
+    focus: ['Board Diversity', 'Corporate Innovation'],
   },
   {
     title: "Dodd-Frank's Impact on Community-Bank Investment Models: A Bayesian Structural Time Series Analysis",
@@ -62,7 +84,8 @@ export const publications = [
     venue: 'Accounting and Finance',
     detail: 'Vol 63(1), 537–554',
     year: 2023,
-    tags: ['Banking', 'Regulation'],
+    url: 'https://doi.org/10.1111/acfi.13016',
+    focus: ['Corporate Finance'],
   },
   {
     title: 'Dancing in Shackles: Clawback and Corporate Innovation',
@@ -70,7 +93,8 @@ export const publications = [
     venue: 'Journal of Accounting and Public Policy',
     detail: 'Vol 41(4)',
     year: 2021,
-    tags: ['Clawback', 'Innovation'],
+    url: 'https://doi.org/10.1016/j.jaccpubpol.2021.106895',
+    focus: ['Corporate Innovation', 'Governance', 'Corporate Finance'],
   },
   {
     title: 'Problems with Crisis Intervention: When the Government Wants to Restrain Big Banks but Punishes Small Businesses Instead',
@@ -78,7 +102,8 @@ export const publications = [
     venue: 'Journal of Business Venturing Insights',
     detail: 'Vol 14',
     year: 2020,
-    tags: ['Banking', 'Small Business'],
+    url: 'https://doi.org/10.1016/j.jbvi.2020.e00185',
+    focus: ['Corporate Finance'],
   },
   {
     title: 'Are Bond Ratings Informative? Evidence from Regulatory Regime Changes',
@@ -86,7 +111,8 @@ export const publications = [
     venue: 'Journal of Fixed Income',
     detail: 'Vol 29(1), 6–19 · lead article',
     year: 2019,
-    tags: ['Credit Ratings', 'Regulation'],
+    url: 'https://doi.org/10.3905/jfi.2019.29.1.006',
+    focus: ['Corporate Finance'],
   },
   {
     title: 'Governance and Post-Repurchase Performance',
@@ -94,43 +120,61 @@ export const publications = [
     venue: 'Journal of Corporate Finance',
     detail: 'Vol 39, 155–173',
     year: 2016,
-    tags: ['Governance', 'Payout'],
+    url: 'https://doi.org/10.1016/j.jcorpfin.2016.02.005',
+    focus: ['Governance', 'Corporate Finance'],
   },
 ]
 
+// Working papers — financial sustainability paper placed last per request.
 export const workingPapers = [
-  {
-    title: 'Financial Sustainability and Cognitive-Mental-Physical Health Outcomes Among Older Adults in Singapore: Evidence from a Population-Based Study',
-    authors: 'with Sumit Agarwal (NUS), Roger Ho (NUS), Peiyi Jin (NUS)',
-    status: 'Under review at BMJ Public Health',
-  },
   {
     title: 'Willingness to Pay for Liquidity: Evidence from an Interest-Free, Tip-Based Cash Advance Platform',
     authors: 'with Sumit Agarwal (NUS), Alok Shashwat (ISB), Bhash Mazumder (UC Irvine)',
-    status: 'Working paper',
+    status: 'SSRN working paper',
+    url: 'https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5957496',
+    focus: ['Household Finance', 'Digital Finance'],
   },
   {
     title: "Power, Scrutiny, and Congressmen's Favoritism for Friends' Firms",
     authors: 'with Quoc-Anh Do (Monash), Bang D. Nguyen (Cambridge), Kieu-Trang Nguyen (Melbourne)',
-    status: 'Working paper',
+    status: 'SSRN working paper',
+    url: 'https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4636019',
+    focus: ['Political Connections', 'Corporate Finance'],
   },
   {
     title: 'Directors as Connectors: The Impact of the External Networks of Directors on Firms',
     authors: 'with Quoc-Anh Do (Monash), Bang D. Nguyen (Cambridge)',
-    status: 'Previously circulated as “Political Connections and Firm Value: Evidence from Close Gubernatorial Elections”',
+    status: 'SSRN working paper',
+    url: 'https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2753836',
+    focus: ['Governance', 'Political Connections', 'Corporate Finance'],
+  },
+  {
+    title: 'Financial Sustainability and Cognitive-Mental-Physical Health Outcomes Among Older Adults in Singapore: Evidence from a Population-Based Study',
+    authors: 'with Sumit Agarwal (NUS), Roger Ho (NUS), Peiyi Jin (NUS)',
+    status: 'Working paper',
+    url: null,
+    focus: ['Household Finance'],
   },
 ]
 
 export const teachingPhilosophy = [
-  'Finance is a language of decisions. My job is to make people fluent enough to act — whether they are a CFO weighing a buyback, a founder pricing a round, or a non-finance manager reading a balance sheet for the first time.',
-  'I teach across the full arc — undergraduate to EMBA, in English and Mandarin, from options pricing to blockchain, Python, and ethical AI. The thread is the same: pair rigorous frameworks with real, current problems, then let students build, present, and defend their own answers.',
+  'Finance is a language of decisions, and my job is to make people fluent enough to act — a CFO weighing a buyback, a founder pricing a round, a manager reading a balance sheet for the first time.',
+  'I teach across the full arc, undergraduate to EMBA, in English and Mandarin, from options pricing to blockchain, Python, and ethical AI. The method holds throughout: pair a rigorous framework with a live problem, then have students build, present, and defend their own answer.',
 ]
 
 export const teachingImpact = [
   { stat: 'ATEA Honour Roll', detail: 'NUS Annual Teaching Excellence Award Honour Roll, 2026–2030' },
-  { stat: 'ATEA 2024–26', detail: 'NUS Annual Teaching Excellence Award, three consecutive years' },
+  { stat: 'ATEA 2024–26', detail: 'NUS Annual Teaching Excellence Award, three years running' },
+  { stat: 'NUS Biz Award', detail: 'NUS Business School Teaching Excellence Award, 2024–2026' },
   { stat: 'First Prize', detail: 'Junior Faculty Teaching Competition, SUFE (2015)' },
-  { stat: 'AI in the classroom', detail: 'Co-PI, grant to build a bespoke 24/7 AI teaching assistant for higher education' },
+]
+
+export const teachingScholarship = [
+  {
+    title: 'Sustainability Education Playbook',
+    note: 'SGFIN Paper Series · with C. Ong, S.C. Chua, C.P. Lim, S. Shin, D. Loo, E. Ng',
+    url: 'https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4959597',
+  },
 ]
 
 export const teachingBreadth = [
@@ -157,9 +201,10 @@ export const teachingBreadth = [
 ]
 
 export const teachingInitiatives = [
-  'Mentored teams through 40+ experiential industry projects since 2019 — with TNB Aura, PwC, KPMG, Google Singapore, AWS, OCBC, J&J and others — on everything from deep tech and decarbonization to GenAI and quantitative strategy.',
+  'Mentored teams through 40+ experiential industry projects since 2019 — with TNB Aura, PwC, KPMG, Google Singapore, AWS, OCBC and J&J — on deep tech, decarbonization, GenAI, and quantitative strategy.',
+  'Co-PI on an NUS grant building a bespoke 24/7 AI teaching assistant for higher education, and on a multidisciplinary sustainability-education grant.',
   'Supervised honours and PhD theses spanning multi-agent LLMs for asset allocation, option trading strategy, monetary policy, and corporate governance.',
-  'Built industry pipelines placing students into BNY Mellon, JP Morgan, DBS, HSBC, SGX, MUFG, EY, Deloitte, KPMG and more.',
+  'Built industry pipelines placing students into BNY Mellon, JP Morgan, DBS, HSBC, SGX, MUFG, EY, Deloitte and KPMG.',
 ]
 
 // Media commentary — grouped by outlet, with live links from the docx.
@@ -172,6 +217,12 @@ export const media = [
       { label: 'Memecoins: new frontier or dicey gamble?', url: 'https://www.straitstimes.com/business/memecoins-a-new-frontier-or-a-dicey-gamble-for-young-investors-in-singapore' },
       { label: 'Why cash is still king for some hawkers', url: 'https://www.straitstimes.com/singapore/why-cash-is-still-king-for-some-hawkers-in-singapore-despite-digitalisation-push' },
       { label: 'More e-hongbaos this Chinese New Year', url: 'https://www.straitstimes.com/singapore/more-e-hongbaos-given-out-in-singapore-this-chinese-new-year' },
+    ],
+  },
+  {
+    outlet: 'The Business Times',
+    items: [
+      { label: 'Pet insurance demand still rising, but growth may be losing bite', url: 'https://www.businesstimes.com.sg/opinion-features/pet-insurance-demand-still-rising-growth-may-be-losing-bite' },
     ],
   },
   {
