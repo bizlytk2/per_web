@@ -177,26 +177,55 @@ export const teachingScholarship = [
   },
 ]
 
+// `nus: true` marks courses taught (or currently taught) at NUS — highlighted in the UI.
 export const teachingBreadth = [
   {
     level: 'EMBA (Chinese)',
-    courses: ['Navigating Change: Strategy, Tech & Global Leadership', 'Corporate Finance', 'Financial Management & Markets'],
+    courses: [
+      { n: 'Navigating Change: Strategy, Tech & Global Leadership', nus: true },
+      { n: 'Corporate Finance', nus: true },
+      { n: 'Financial Management & Markets', nus: true },
+    ],
   },
   {
     level: 'MBA',
-    courses: ['Technological Innovations and Disruptions in Finance', 'Financial Analytics', 'Data Science for Managers', 'ChinaTrek', 'Managerial Finance'],
+    courses: [
+      { n: 'Technological Innovations and Disruptions in Finance', nus: true },
+      { n: 'Financial Analytics', nus: false },
+      { n: 'Data Science for Managers', nus: false },
+      { n: 'ChinaTrek', nus: false },
+      { n: 'Managerial Finance', nus: false },
+    ],
   },
   {
     level: 'Executive Education',
-    courses: ['Stock Fundamental Valuation', 'Blockchain', 'Ethical AI', 'Finance with Python', 'Financing with FinTech', 'The Future of Banking'],
+    courses: [
+      { n: 'Stock Fundamental Valuation', nus: true },
+      { n: 'Blockchain', nus: true },
+      { n: 'Ethical AI', nus: true },
+      { n: 'Finance with Python', nus: true },
+      { n: 'Financing with FinTech', nus: false },
+      { n: 'The Future of Banking', nus: false },
+    ],
   },
   {
     level: 'Postgraduate',
-    courses: ['Financial Technology & Analytics', 'Fintech Venture Creation', 'Statistics & Analytics in Finance', 'Empirical Corporate Finance'],
+    courses: [
+      { n: 'Financial Technology & Analytics', nus: true },
+      { n: 'Fintech Venture Creation', nus: true },
+      { n: 'Statistics & Analytics in Finance', nus: true },
+      { n: 'Empirical Corporate Finance', nus: false },
+    ],
   },
   {
     level: 'Undergraduate',
-    courses: ['Fintech & Financial Data Analytics', 'Options & Futures', 'Derivative Securities', 'International Finance', 'Corporate Finance'],
+    courses: [
+      { n: 'Fintech & Financial Data Analytics', nus: true },
+      { n: 'Options & Futures', nus: true },
+      { n: 'Derivative Securities', nus: false },
+      { n: 'International Finance', nus: false },
+      { n: 'Corporate Finance', nus: false },
+    ],
   },
 ]
 
@@ -207,57 +236,43 @@ export const teachingInitiatives = [
   'Built industry pipelines placing students into BNY Mellon, JP Morgan, DBS, HSBC, SGX, MUFG, EY, Deloitte and KPMG.',
 ]
 
-// Media commentary — grouped by outlet, with live links from the docx.
-export const media = [
-  {
-    outlet: 'The Straits Times',
-    items: [
-      { label: 'Is pet insurance worth paying for?', url: 'https://www.straitstimes.com/singapore/the-truth-about-coverage-is-pet-insurance-worth-paying-for' },
-      { label: 'Financial influencers and the knowledge gap', url: 'https://www.straitstimes.com/business/financial-influencers-say-they-fill-a-gap-in-knowledge-about-money-matters' },
-      { label: 'Memecoins: new frontier or dicey gamble?', url: 'https://www.straitstimes.com/business/memecoins-a-new-frontier-or-a-dicey-gamble-for-young-investors-in-singapore' },
-      { label: 'Why cash is still king for some hawkers', url: 'https://www.straitstimes.com/singapore/why-cash-is-still-king-for-some-hawkers-in-singapore-despite-digitalisation-push' },
-      { label: 'More e-hongbaos this Chinese New Year', url: 'https://www.straitstimes.com/singapore/more-e-hongbaos-given-out-in-singapore-this-chinese-new-year' },
-    ],
-  },
-  {
-    outlet: 'The Business Times',
-    items: [
-      { label: 'Pet insurance demand still rising, but growth may be losing bite', url: 'https://www.businesstimes.com.sg/opinion-features/pet-insurance-demand-still-rising-growth-may-be-losing-bite' },
-    ],
-  },
-  {
-    outlet: 'CNA',
-    items: [
-      { label: 'Banking outages & e-payment disruption (Big Read)', url: 'https://www.channelnewsasia.com/singapore/banking-outages-epayment-service-disruption-big-read-3879661' },
-      { label: 'Multi-currency apps & exchange rates', url: 'https://www.channelnewsasia.com/singapore/revolut-wise-youtrip-multi-currency-app-exchange-rates-good-3928711' },
-      { label: 'Cashless vs cash-only: PayNow & digital payments', url: 'https://www.channelnewsasia.com/singapore/cashless-cash-only-paynow-digital-payments-5220521' },
-    ],
-  },
-  {
-    outlet: 'Lianhe Zaobao',
-    items: [
-      { label: 'Cryptocurrency commentary', url: 'https://www.zaobao.com.sg/finance/singapore/story20241121-5357513' },
-      { label: 'Digital investing tools help newcomers seize opportunities', url: 'https://www.zaobao.com.sg/finance/singapore/story20220814-1302011' },
-    ],
-  },
-  {
-    outlet: 'TODAY',
-    items: [
-      { label: 'Protecting customers after the DBS digital services disruption', url: 'https://www.todayonline.com/singapore/dbs-digital-banking-service-outage-reliable-experts-2141386' },
-    ],
-  },
-  {
-    outlet: 'Insurance Asia',
-    items: [
-      { label: 'CrowdStrike meltdown may shore up cyber insurance premiums', url: 'https://insuranceasia.com/insurance/exclusive/crowdstrike-meltdown-may-shore-cyber-insurance-premiums' },
-    ],
-  },
-  {
-    outlet: 'Kellogg Insight',
-    items: [
-      { label: 'Do Powerful Politicians Play Favorites with Their Corporate Friends? (Feb 2021)', url: 'https://insight.kellogg.northwestern.edu/article/powerful-politicians-corporate-friends' },
-    ],
-  },
+// Media — organized by topic. Outlet is a label on each item; `theme` drives filtering.
+export const mediaThemes = [
+  'Payments & the cashless society',
+  'Banking resilience & disruptions',
+  'Crypto & the new retail investor',
+  'Insurance & risk',
+]
+
+export const commentary = [
+  // Payments & the cashless society
+  { label: 'Why cash is still king for some hawkers', outlet: 'The Straits Times', theme: 'Payments & the cashless society', url: 'https://www.straitstimes.com/singapore/why-cash-is-still-king-for-some-hawkers-in-singapore-despite-digitalisation-push' },
+  { label: 'More e-hongbaos given out this Chinese New Year', outlet: 'The Straits Times', theme: 'Payments & the cashless society', url: 'https://www.straitstimes.com/singapore/more-e-hongbaos-given-out-in-singapore-this-chinese-new-year' },
+  { label: 'Cashless vs cash-only: PayNow & digital payments', outlet: 'CNA', theme: 'Payments & the cashless society', url: 'https://www.channelnewsasia.com/singapore/cashless-cash-only-paynow-digital-payments-5220521' },
+  { label: 'Multi-currency apps & exchange rates', outlet: 'CNA', theme: 'Payments & the cashless society', url: 'https://www.channelnewsasia.com/singapore/revolut-wise-youtrip-multi-currency-app-exchange-rates-good-3928711' },
+
+  // Banking resilience & disruptions
+  { label: 'Banking outages & e-payment disruption (Big Read)', outlet: 'CNA', theme: 'Banking resilience & disruptions', url: 'https://www.channelnewsasia.com/singapore/banking-outages-epayment-service-disruption-big-read-3879661' },
+  { label: 'Protecting customers after the DBS digital services disruption', outlet: 'TODAY', theme: 'Banking resilience & disruptions', url: 'https://www.todayonline.com/singapore/dbs-digital-banking-service-outage-reliable-experts-2141386' },
+
+  // Crypto & the new retail investor
+  { label: 'Memecoins: new frontier or dicey gamble?', outlet: 'The Straits Times', theme: 'Crypto & the new retail investor', url: 'https://www.straitstimes.com/business/memecoins-a-new-frontier-or-a-dicey-gamble-for-young-investors-in-singapore' },
+  { label: 'Financial influencers and the knowledge gap', outlet: 'The Straits Times', theme: 'Crypto & the new retail investor', url: 'https://www.straitstimes.com/business/financial-influencers-say-they-fill-a-gap-in-knowledge-about-money-matters' },
+  { label: 'Cryptocurrency commentary', outlet: 'Lianhe Zaobao', theme: 'Crypto & the new retail investor', url: 'https://www.zaobao.com.sg/finance/singapore/story20241121-5357513' },
+  { label: 'Digital investing tools help newcomers seize opportunities', outlet: 'Lianhe Zaobao', theme: 'Crypto & the new retail investor', url: 'https://www.zaobao.com.sg/finance/singapore/story20220814-1302011' },
+
+  // Insurance & risk
+  { label: 'Is pet insurance worth paying for?', outlet: 'The Straits Times', theme: 'Insurance & risk', url: 'https://www.straitstimes.com/singapore/the-truth-about-coverage-is-pet-insurance-worth-paying-for' },
+  { label: 'Pet insurance demand still rising, but growth may be losing bite', outlet: 'The Business Times', theme: 'Insurance & risk', url: 'https://www.businesstimes.com.sg/opinion-features/pet-insurance-demand-still-rising-growth-may-be-losing-bite' },
+  { label: 'CrowdStrike meltdown may shore up cyber insurance premiums', outlet: 'Insurance Asia', theme: 'Insurance & risk', url: 'https://insuranceasia.com/insurance/exclusive/crowdstrike-meltdown-may-shore-cyber-insurance-premiums' },
+]
+
+// Coverage of the research itself — distinct from op-ed commentary.
+export const researchPress = [
+  { label: 'Do Powerful Politicians Play Favorites with Their Corporate Friends?', outlet: 'Kellogg Insight', year: '2021', url: 'https://insight.kellogg.northwestern.edu/article/powerful-politicians-corporate-friends' },
+  { label: 'Who wins when a politician wins?', outlet: 'The Economist', year: '2016', url: 'https://www.economist.com/democracy-in-america/2016/04/15/who-wins-when-a-politician-wins' },
+  { label: 'Directors as Connectors', outlet: 'Columbia Law School Blue Sky Blog', year: '2016', url: 'https://clsbluesky.law.columbia.edu/2016/05/09/directors-as-connectors/' },
+  { label: 'Featured on BBC World Service', outlet: 'BBC World Service', year: '', url: 'https://www.bbc.co.uk/programmes/p03qzk73' },
 ]
 
 export const appointments = [

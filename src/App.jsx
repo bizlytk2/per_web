@@ -3,7 +3,7 @@ import { motion, useScroll, useSpring, useTransform, useInView, animate } from '
 import {
   profile, bio, stats, focusAreas, researchPhilosophy, publications, workingPapers,
   teachingPhilosophy, teachingImpact, teachingScholarship, teachingBreadth, teachingInitiatives,
-  media, appointments, education, skills, cvFile,
+  mediaThemes, commentary, researchPress, appointments, education, skills, cvFile,
 } from './data.js'
 
 /* ---------- Animated background ---------- */
@@ -399,14 +399,19 @@ function Teaching() {
       </div>
 
       <Reveal delay={0.1}>
-        <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.6rem', margin: '64px 0 22px', fontWeight: 600 }}>
-          Courses taught across programmes
-        </h3>
+        <div className="list-head" style={{ margin: '64px 0 22px' }}>
+          <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.6rem', fontWeight: 600 }}>
+            Courses taught across programmes
+          </h3>
+          <span className="nus-legend"><span className="dot" /> Taught at NUS</span>
+        </div>
         <div className="breadth breadth-full">
           {teachingBreadth.map((b, i) => (
             <div className="breadth-row" key={i}>
               <div className="lvl">{b.level}</div>
-              <div className="cs">{b.courses.map(c => <span key={c}>{c}</span>)}</div>
+              <div className="cs">{b.courses.map(c => (
+                <span key={c.n} className={c.nus ? 'nus-course' : ''}>{c.n}</span>
+              ))}</div>
             </div>
           ))}
         </div>
@@ -417,31 +422,59 @@ function Teaching() {
 
 /* ---------- Media ---------- */
 function Media() {
+  const [theme, setTheme] = useState(null)
+  const toggle = (t) => setTheme(cur => (cur === t ? null : t))
+  const items = theme ? commentary.filter(c => c.theme === theme) : commentary
+
   return (
     <section id="media" className="wrap">
       <Reveal>
         <span className="eyebrow">03 — Media & Commentary</span>
         <h2 className="section-title">Finance, <span className="grad-text">in public</span></h2>
-        <p className="lede" style={{ maxWidth: 620, marginBottom: 50 }}>
+        <p className="lede" style={{ maxWidth: 620, marginBottom: 36 }}>
           Selected commentary on the money questions people actually face — cashless payments and memecoins, bank outages and cyber insurance, and whether powerful politicians favour their friends.
         </p>
       </Reveal>
+
+      <Reveal delay={0.05}>
+        <div className="filter-group" style={{ marginBottom: 36 }}>
+          <button className={`fchip ${theme === null ? 'on' : ''}`} onClick={() => setTheme(null)}>All topics</button>
+          {mediaThemes.map(t => (
+            <button key={t} className={`fchip ${theme === t ? 'on' : ''}`} onClick={() => toggle(t)}>{t}</button>
+          ))}
+        </div>
+      </Reveal>
+
       <div className="media-grid">
-        {media.map((m, i) => (
-          <Reveal key={m.outlet} delay={Math.min(i * 0.06, 0.3)}>
-            <div className="card outlet">
-              <h4>{m.outlet}</h4>
-              <span className="count">{m.items.length} {m.items.length > 1 ? 'pieces' : 'piece'}</span>
-              <ul>
-                {m.items.map((it, j) => (
-                  <li key={j}>
-                    <a href={it.url} target="_blank" rel="noopener noreferrer">
-                      <span className="arrow">↗</span><span>{it.label}</span>
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
+        {items.map((c) => (
+          <Reveal key={c.label} delay={0}>
+            <a className="card commentary-card" href={c.url} target="_blank" rel="noopener noreferrer">
+              <span className="c-outlet">{c.outlet}</span>
+              <span className="c-title">{c.label} <span className="arrow">↗</span></span>
+              <button
+                className="c-theme"
+                onClick={(e) => { e.preventDefault(); toggle(c.theme) }}
+              >{c.theme}</button>
+            </a>
+          </Reveal>
+        ))}
+      </div>
+
+      <Reveal delay={0.1}>
+        <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.8rem', margin: '70px 0 10px', fontWeight: 600 }}>
+          Research in the press
+        </h3>
+        <p style={{ color: 'var(--text-dim)', maxWidth: 560, marginBottom: 28 }}>
+          When the work itself makes the news.
+        </p>
+      </Reveal>
+      <div className="press-grid">
+        {researchPress.map((r) => (
+          <Reveal key={r.label} delay={0}>
+            <a className="card press-card" href={r.url} target="_blank" rel="noopener noreferrer">
+              <span className="c-title">{r.label} <span className="arrow">↗</span></span>
+              <span className="press-meta">{r.outlet}{r.year ? ` · ${r.year}` : ''}</span>
+            </a>
           </Reveal>
         ))}
       </div>
