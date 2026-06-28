@@ -114,8 +114,8 @@ function Counter({ value, suffix = '', raw = false }) {
 /* ---------- Nav ---------- */
 const NAV = [
   ['About', '#about'],
-  ['Research', '#research'],
   ['Teaching', '#teaching'],
+  ['Research', '#research'],
   ['Media', '#media'],
   ['CV', '#cv'],
   ['Contact', '#contact'],
@@ -263,7 +263,7 @@ function Research() {
   return (
     <section id="research" className="wrap">
       <Reveal>
-        <span className="eyebrow">01 — Research</span>
+        <span className="eyebrow">02 — Research</span>
         <h2 className="section-title">A research <span className="grad-text">philosophy</span></h2>
       </Reveal>
       <div className="grid-2">
@@ -348,7 +348,7 @@ function Teaching() {
   return (
     <section id="teaching" className="wrap">
       <Reveal>
-        <span className="eyebrow">02 — Teaching</span>
+        <span className="eyebrow">01 — Teaching</span>
         <h2 className="section-title">Making finance <span className="grad-text cool">fluent</span></h2>
       </Reveal>
       <div className="grid-2">
@@ -558,8 +558,8 @@ export default function App() {
         <Hero />
         <Stats />
         <About />
-        <Research />
         <Teaching />
+        <Research />
         <Media />
         <CV />
       </main>
