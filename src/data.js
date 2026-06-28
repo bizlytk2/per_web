@@ -13,6 +13,7 @@ export const profile = {
   address:
     'Finance Department, BIZ1 07-60 · National University of Singapore · 15 Kent Ridge Drive, Singapore 119245',
   profileUrl: 'https://discovery.nus.edu.sg/18324-yen-teik-lee/publications',
+  linkedin: 'https://sg.linkedin.com/in/yen-teik-lee',
   interests: ['Corporate Finance', 'Digital Finance', 'FinTech', 'Corporate Innovation', 'Governance'],
 }
 
@@ -25,11 +26,11 @@ export const bio = [
 ]
 
 export const stats = [
-  { value: 8, suffix: '', label: 'Peer-reviewed publications' },
+  { value: 2026, suffix: '–30', label: 'NUS ATEA Honour Roll', raw: true },
+  { value: 7, suffix: '', label: 'Teaching Excellence Awards' },
+  { value: 30, suffix: '+', label: 'Experiential projects mentored' },
+  { value: 50, suffix: '+', label: 'Executive classes taught' },
   { value: 3, suffix: '', label: 'FT50 publications' },
-  { value: 4, suffix: '', label: 'Working papers in the pipeline' },
-  { value: 5, suffix: '', label: 'Universities taught across' },
-  { value: 2026, suffix: '–30', label: 'NUS Teaching Excellence Honour Roll', raw: true },
 ]
 
 // Focus areas used for interactive filtering (FinTech Lending dropped).
@@ -230,7 +231,7 @@ export const teachingBreadth = [
 ]
 
 export const teachingInitiatives = [
-  'Mentored teams through 40+ experiential industry projects since 2019 — with TNB Aura, PwC, KPMG, Google Singapore, AWS, OCBC and J&J — on deep tech, decarbonization, GenAI, and quantitative strategy.',
+  'Mentored teams through 30+ experiential industry projects since 2019 — with TNB Aura, PwC, KPMG, Google Singapore, AWS, OCBC and J&J — on deep tech, decarbonization, GenAI, and quantitative strategy.',
   'Co-PI on an NUS grant building a bespoke 24/7 AI teaching assistant for higher education, and on a multidisciplinary sustainability-education grant.',
   'Supervised honours and PhD theses spanning multi-agent LLMs for asset allocation, option trading strategy, monetary policy, and corporate governance.',
   'Built industry pipelines placing students into BNY Mellon, JP Morgan, DBS, HSBC, SGX, MUFG, EY, Deloitte and KPMG.',
@@ -272,7 +273,7 @@ export const researchPress = [
   { label: 'Do Powerful Politicians Play Favorites with Their Corporate Friends?', outlet: 'Kellogg Insight', year: '2021', url: 'https://insight.kellogg.northwestern.edu/article/powerful-politicians-corporate-friends' },
   { label: 'Who wins when a politician wins?', outlet: 'The Economist', year: '2016', url: 'https://www.economist.com/democracy-in-america/2016/04/15/who-wins-when-a-politician-wins' },
   { label: 'Directors as Connectors', outlet: 'Columbia Law School Blue Sky Blog', year: '2016', url: 'https://clsbluesky.law.columbia.edu/2016/05/09/directors-as-connectors/' },
-  { label: 'Featured on BBC World Service', outlet: 'BBC World Service', year: '', url: 'https://www.bbc.co.uk/programmes/p03qzk73' },
+  { label: 'Featured on BBC World Service', outlet: 'BBC World Service', year: '2016', url: 'https://www.bbc.co.uk/programmes/p03qzk73' },
 ]
 
 export const appointments = [

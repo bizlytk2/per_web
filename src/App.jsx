@@ -530,6 +530,7 @@ function Footer() {
         <div className="contact-row">
           <a className="btn btn-primary" href={`mailto:${profile.email}`}>{profile.email}</a>
           <a className="btn btn-ghost" href={profile.profileUrl} target="_blank" rel="noopener">NUS profile ↗</a>
+          <a className="btn btn-ghost" href={profile.linkedin} target="_blank" rel="noopener">LinkedIn ↗</a>
           <span style={{ color: 'var(--text-dim)', fontFamily: 'var(--font-mono)', fontSize: '0.82rem' }}>{profile.phone}</span>
         </div>
       </Reveal>
