@@ -4,8 +4,7 @@ import {
   profile, headshot, stats, focusAreas, publications, workingPapers,
   teachingScholarship, teachingBreadth,
   commentary, researchPress, mediaThemes,
-  leadershipRoles, serviceRoles, refereeing, grants,
-  appointments, education, skills, cvFile,
+  refereeing, skills, cvFile,
 } from './data.js'
 import { L, tr } from './i18n.js'
 
@@ -496,7 +495,7 @@ function LeadershipService() {
           <Reveal>
             <div className="fact-block card">
               <h5>{t.service.leadership}</h5>
-              {leadershipRoles.map((a, i) => (
+              {t.leadershipRoles.map((a, i) => (
                 <div className="row" key={i}><span className="l">{a.role}</span><span className="r">{a.period}</span></div>
               ))}
             </div>
@@ -504,7 +503,7 @@ function LeadershipService() {
           <Reveal delay={0.06}>
             <div className="fact-block card">
               <h5>{t.service.committees}</h5>
-              {serviceRoles.map((a, i) => (
+              {t.serviceRoles.map((a, i) => (
                 <div className="row" key={i}><span className="l">{a.role}</span><span className="r">{a.period}</span></div>
               ))}
               <div className="row" style={{ borderBottom: 'none' }}>
@@ -517,7 +516,7 @@ function LeadershipService() {
         <Reveal delay={0.1}>
           <div className="fact-block card">
             <h5>{t.service.grants}</h5>
-            {grants.map((g, i) => (
+            {t.grants.map((g, i) => (
               <div className="grant-row" key={i}>
                 <div className="grant-top">
                   <span className="grant-amt">{g.amount}</span>
@@ -552,7 +551,7 @@ function CV() {
         <Reveal>
           <div className="fact-block card">
             <h5>{t.cv.appointments}</h5>
-            {appointments.map((a, i) => (
+            {t.appointments.map((a, i) => (
               <div className="row" key={i}><span className="l">{a.role}</span><span className="r">{a.period}</span></div>
             ))}
           </div>
@@ -561,7 +560,7 @@ function CV() {
           <Reveal delay={0.06}>
             <div className="fact-block card">
               <h5>{t.cv.education}</h5>
-              {education.map((e, i) => (
+              {t.education.map((e, i) => (
                 <div className="row" key={i}><span className="l">{e.degree} · {e.school}</span><span className="r">{e.period}</span></div>
               ))}
             </div>
