@@ -1,0 +1,166 @@
+// Bilingual strings. EN is the source of truth; ZH is a first-pass draft for review.
+// Proper nouns kept in English by convention: paper/working-paper titles, journal
+// names, course names, institution names, co-author names, and media article labels.
+
+export const L = {
+  en: {
+    langToggle: '中文',
+    nav: { about: 'About', teaching: 'Teaching', research: 'Research', media: 'Media', service: 'Service', cv: 'CV', contact: 'Contact' },
+    eyebrow: {
+      about: 'About', teaching: 'Teaching', research: 'Research',
+      media: 'Media & Commentary', service: 'Leadership & Service', cv: 'Curriculum Vitae', contact: 'Get in touch',
+    },
+    titles: {
+      about: { a: 'Who I ', b: 'am' },
+      teaching: { a: 'Making finance ', b: 'fluent' },
+      research: { a: 'A research ', b: 'philosophy' },
+      media: { a: 'Finance, ', b: 'in public' },
+      service: { a: 'Building the ', b: 'institution' },
+      cv: { a: 'At a ', b: 'glance' },
+      footer: { a: "Let's ", b: 'talk', c: ' finance.' },
+    },
+    profile: {
+      title: 'Senior Lecturer in Finance',
+      org: 'NUS Business School',
+      roleLine: 'Deputy Academic Director, NUS Executive MBA (Chinese)',
+      tagline: 'I study how people and firms make financial decisions — and how technology is rewriting the rules of money.',
+      address: 'Finance Department, BIZ1 07-60 · National University of Singapore · 15 Kent Ridge Drive, Singapore 119245',
+    },
+    interests: ['Corporate Finance', 'Digital Finance', 'FinTech', 'Corporate Innovation', 'Governance'],
+    hero: { explore: 'Explore the research →', downloadCv: 'Download CV ↓', scroll: 'Scroll' },
+    statLabels: ['NUS ATEA Honour Roll', 'Teaching Excellence Awards', 'Experiential projects mentored', 'Executive classes taught', 'FT50 publications'],
+    bio: [
+      'I am a Senior Lecturer at NUS Business School and Deputy Academic Director of the EMBA-Chinese Programme. I teach and mentor students in corporate and digital finance, from undergraduate to executive level.',
+      'My teaching has won the NUS Annual Teaching Excellence Award and the NUS Business School Teaching Excellence Award in 2024, 2025, and 2026, and the Shanghai University of Finance and Economics (SUFE) Teaching Excellence Award in 2015.',
+      "I research how people make everyday financial decisions, including what they will pay for liquidity. My work has appeared in the Journal of Corporate Finance, Research Policy, and the Journal of Management Studies, and won the Best Paper in Corporate Finance award at the Society for Financial Studies Finance Cavalcade in 2013. It has been featured by Kellogg Insight, the BBC World Service, The Economist, and Columbia Law School's Blue Sky Blog, and my commentary has appeared in The Straits Times, CNA, and The Business Times.",
+      "Before NUS, I was an Assistant Professor of Finance at the Asia School of Business and SUFE, a Senior Lecturer at Curtin Singapore, and a visiting scholar at New York University's Stern School of Business and Cambridge Judge Business School. I hold a PhD in Business (Finance) from Singapore Management University.",
+    ],
+    researchPhilosophy: [
+      'Good research starts with a real friction — something that shapes how capital moves or how people decide — and a setting clean enough to measure it.',
+      'My work follows two threads. One is corporate finance and innovation: how boards, clawbacks, and political ties shape what firms build and how they perform. The other is digital finance: how fintech platforms, cashless payments, and AI reshape the financial lives of firms and households.',
+      'I rely on natural experiments, regulatory shifts, and large-scale data to draw causal lines that hold. And I write for the people a result touches — a regulator, a board, a borrower — not only for the referee.',
+    ],
+    research: { exploreFocus: 'Explore by focus area', selectedPubs: 'Selected publications', workingPapers: 'Working papers', filtering: 'Filtering:', noPubs: 'No publications in this filter.', noWps: 'No working papers in this filter.' },
+    teachingPhilosophy: [
+      'Finance is a language of decisions, and my job is to make people fluent enough to act — a CFO weighing a buyback, a founder pricing a round, a manager reading a balance sheet for the first time.',
+      'I teach across the full arc, undergraduate to EMBA, in English and Mandarin, from options pricing to blockchain, Python, and ethical AI. The method holds throughout: pair a rigorous framework with a live problem, then have students build, present, and defend their own answer.',
+    ],
+    teachingInitiatives: [
+      'Mentored teams through 30+ experiential industry projects since 2019 — with TNB Aura, PwC, KPMG, Google Singapore, AWS, OCBC and J&J — on deep tech, decarbonization, GenAI, and quantitative strategy.',
+      'Co-PI on an NUS grant building a bespoke 24/7 AI teaching assistant for higher education, and on a multidisciplinary sustainability-education grant.',
+      'Supervised honours and PhD theses spanning multi-agent LLMs for asset allocation, option trading strategy, monetary policy, and corporate governance.',
+      'Built industry pipelines placing students into BNY Mellon, JP Morgan, DBS, HSBC, SGX, MUFG, EY, Deloitte and KPMG.',
+    ],
+    teachingScholarshipLabel: 'Teaching scholarship',
+    teachingScholarship: [{ title: 'Sustainability Education Playbook', note: 'SGFIN Paper Series · with C. Ong, S.C. Chua, C.P. Lim, S. Shin, D. Loo, E. Ng' }],
+    teachingImpact: [
+      { stat: 'ATEA Honour Roll', detail: 'NUS Annual Teaching Excellence Award Honour Roll, 2026–2030' },
+      { stat: 'ATEA 2024–26', detail: 'NUS Annual Teaching Excellence Award, three years running' },
+      { stat: 'NUS Biz Award', detail: 'NUS Business School Teaching Excellence Award, 2024–2026' },
+      { stat: 'First Prize', detail: 'Junior Faculty Teaching Competition, SUFE (2015)' },
+    ],
+    coursesTitle: 'Courses taught across programmes',
+    legend: { designed: 'Designed / revamped', taught: 'Taught at NUS' },
+    levels: {}, // identity in EN
+    inTheirWords: 'In their words',
+    testimonials: [
+      { quote: 'This course is less for me, but more for everyone else.', name: 'CFO', role: 'Corporate Finance (EMBA)' },
+      { quote: 'The viva forced me to defend assumptions beyond what slides could hide.', name: 'Student', role: 'on the ERLT oral defence' },
+      { quote: 'New possibilities opened up.', name: 'MFin student', role: 'after completing a SQL course during an internship' },
+    ],
+    wpStatus: {},
+    focus: {},
+    media: {
+      intro: 'Selected commentary on the money questions people actually face — cashless payments and memecoins, bank outages and cyber insurance, and whether powerful politicians favour their friends.',
+      allTopics: 'All topics', researchInPress: 'Research in the press', pressSub: 'When the work itself makes the news.',
+    },
+    themes: {},
+    service: { leadership: 'Academic & programme leadership', committees: 'Service & committees', referee: 'Ad-hoc referee', grants: 'Grants & funding' },
+    grantRole: {},
+    cv: { download: 'Download full CV (PDF) ↓', appointments: 'Academic appointments', education: 'Education', skills: 'Skills & credentials', software: 'Software', languages: 'Languages', certification: 'Certification' },
+    languages: ['English (fluent)', 'Chinese (native)', 'Hokkien', 'Cantonese'],
+    footer: { nusProfile: 'NUS profile ↗', linkedin: 'LinkedIn ↗', metaRight: 'NUS Business School · Singapore' },
+  },
+
+  zh: {
+    langToggle: 'EN',
+    nav: { about: '关于', teaching: '教学', research: '研究', media: '媒体', service: '服务', cv: '履历', contact: '联系' },
+    eyebrow: {
+      about: '关于', teaching: '教学', research: '研究',
+      media: '媒体与评论', service: '领导与服务', cv: '履历', contact: '联系方式',
+    },
+    titles: {
+      about: { a: '我是', b: '谁' },
+      teaching: { a: '让金融变得', b: '流利' },
+      research: { a: '研究', b: '理念' },
+      media: { a: '金融，', b: '走向公众' },
+      service: { a: '建设', b: '学院' },
+      cv: { a: '履历', b: '一览' },
+      footer: { a: '一起', b: '聊聊', c: '金融。' },
+    },
+    profile: {
+      title: '金融学高级讲师',
+      org: '新加坡国立大学商学院',
+      roleLine: '新加坡国立大学中文EMBA副学术主任',
+      tagline: '我研究人们与企业如何做出金融决策，以及科技如何改写金钱的规则。',
+      address: '金融系，BIZ1 07-60 · 新加坡国立大学 · 15 Kent Ridge Drive, Singapore 119245',
+    },
+    interests: ['公司金融', '数字金融', '金融科技', '企业创新', '公司治理'],
+    hero: { explore: '浏览研究 →', downloadCv: '下载简历 ↓', scroll: '向下滚动' },
+    statLabels: ['新国大 ATEA 卓越教学荣誉榜', '卓越教学奖', '指导的实践项目', '高管课程授课', 'FT50 期刊论文'],
+    bio: [
+      '我是新加坡国立大学商学院金融学高级讲师，并担任中文EMBA课程副学术主任。我教授并指导从本科到高管层的学生，专注于公司金融与数字金融。',
+      '我的教学曾荣获新加坡国立大学年度卓越教学奖（ATEA）与商学院卓越教学奖（2024、2025、2026年），以及上海财经大学卓越教学奖（2015年）。',
+      '我研究人们如何做出日常金融决策，包括他们愿意为流动性付出多少代价。我的研究发表于《Journal of Corporate Finance》《Research Policy》与《Journal of Management Studies》等期刊，并于2013年荣获美国金融研究学会（SFS）Finance Cavalcade 公司金融最佳论文奖。研究成果获 Kellogg Insight、BBC 世界新闻台、《经济学人》及哥伦比亚法学院 Blue Sky Blog 报道；相关评论亦见于《海峡时报》、新传媒（CNA）与《商业时报》。',
+      '加入新国大之前，我曾任亚洲商学院（ASB）与上海财经大学金融学助理教授、科廷大学新加坡校区高级讲师，并在纽约大学斯特恩商学院与剑桥大学贾奇商学院担任访问学者。我拥有新加坡管理大学商学（金融）博士学位。',
+    ],
+    researchPhilosophy: [
+      '好的研究始于真实的摩擦——某种影响资本流动或人们决策的因素——并找到一个足够清晰、可供衡量的情境。',
+      '我的研究沿两条主线展开。其一是公司金融与创新：董事会、追回条款（clawback）与政治关联如何影响企业的创造与表现。其二是数字金融：金融科技平台、无现金支付与人工智能如何重塑企业与家庭的金融生活。',
+      '我借助自然实验、监管制度变迁与大规模数据，勾勒出站得住脚的因果关系。我的写作面向研究结果所触及的人——监管者、董事会、借款人——而不仅仅是审稿人。',
+    ],
+    research: { exploreFocus: '按研究领域浏览', selectedPubs: '代表性论文', workingPapers: '工作论文', filtering: '筛选：', noPubs: '该筛选下暂无论文。', noWps: '该筛选下暂无工作论文。' },
+    teachingPhilosophy: [
+      '金融是一门关于决策的语言，而我的任务是让人们足够流利，从而付诸行动——无论是权衡股票回购的CFO、为融资轮定价的创业者，还是第一次研读资产负债表的管理者。',
+      '我的教学贯穿本科到EMBA，以中英双语授课，内容从期权定价到区块链、Python 与人工智能伦理。方法始终如一：将严谨的框架与真实、当下的问题结合，再让学生构建、汇报并捍卫自己的答案。',
+    ],
+    teachingInitiatives: [
+      '自2019年以来，指导团队完成30多个实践性行业项目——合作方包括 TNB Aura、PwC、KPMG、Google 新加坡、AWS、OCBC 与强生——涵盖深科技、脱碳、生成式AI与量化策略。',
+      '担任新国大资助项目的共同负责人，开发面向高等教育的全天候定制AI教学助手，并参与跨学科可持续发展教育项目。',
+      '指导本科荣誉论文与博士论文，主题涵盖用于资产配置的多智能体大语言模型、期权交易策略、货币政策与公司治理。',
+      '搭建产业人才输送渠道，学生进入纽约梅隆银行、摩根大通、星展银行、汇丰、新交所、三菱日联、安永、德勤与毕马威等机构。',
+    ],
+    teachingScholarshipLabel: '教学学术',
+    teachingScholarship: [{ title: 'Sustainability Education Playbook（可持续发展教育手册）', note: 'SGFIN 论文系列 · 与 C. Ong、S.C. Chua、C.P. Lim、S. Shin、D. Loo、E. Ng 合著' }],
+    teachingImpact: [
+      { stat: 'ATEA 荣誉榜', detail: '新国大年度卓越教学奖荣誉榜，2026–2030' },
+      { stat: 'ATEA 2024–26', detail: '新国大年度卓越教学奖，连续三年' },
+      { stat: '商学院教学奖', detail: '新国大商学院卓越教学奖，2024–2026' },
+      { stat: '一等奖', detail: '上海财经大学青年教师教学竞赛一等奖（2015）' },
+    ],
+    coursesTitle: '各项目授课课程',
+    legend: { designed: '设计 / 改版', taught: '于新国大授课' },
+    levels: { 'EMBA (Chinese)': 'EMBA（中文）', MBA: 'MBA', Postgraduate: '研究生', Undergraduate: '本科', 'Executive Education': '高管教育' },
+    inTheirWords: '学生与同行评价',
+    testimonials: [
+      { quote: '这门课与其说是为我，不如说是为其他所有人。', name: '某CFO', role: '公司金融（EMBA）' },
+      { quote: '这场答辩逼我去捍卫幻灯片掩盖不了的种种假设。', name: '学生', role: '关于 ERLT 口头答辩' },
+      { quote: '新的可能性就此打开。', name: '金融硕士学生', role: '在实习期间完成 SQL 课程后' },
+    ],
+    wpStatus: { 'SSRN working paper': 'SSRN 工作论文', 'Working paper': '工作论文' },
+    focus: { 'Corporate Finance': '公司金融', 'Digital Finance': '数字金融', 'Corporate Innovation': '企业创新', 'Board Diversity': '董事会多元化', Governance: '公司治理', 'Political Connections': '政治关联', 'Household Finance': '家庭金融' },
+    media: {
+      intro: '精选评论，聚焦人们真正面对的金钱问题——无现金支付与迷因币、银行宕机与网络保险，以及位高权重的政客是否会偏袒自己的朋友。',
+      allTopics: '全部主题', researchInPress: '研究见诸媒体', pressSub: '当研究本身成为新闻。',
+    },
+    themes: { 'Payments & the cashless society': '支付与无现金社会', 'Banking resilience & disruptions': '银行韧性与中断', 'Crypto & the new retail investor': '加密货币与新一代散户', 'Insurance & risk': '保险与风险' },
+    service: { leadership: '学术与项目领导', committees: '服务与委员会', referee: '匿名审稿', grants: '科研与教学资助' },
+    grantRole: { Collaborator: '合作者', 'Co-PI': '共同负责人' },
+    cv: { download: '下载完整简历（PDF）↓', appointments: '学术任职', education: '教育背景', skills: '技能与资质', software: '软件', languages: '语言', certification: '资格认证' },
+    languages: ['英语（流利）', '中文（母语）', '福建话', '广东话'],
+    footer: { nusProfile: '新国大主页 ↗', linkedin: '领英 ↗', metaRight: '新加坡国立大学商学院 · 新加坡' },
+  },
+}
+
+// Display helper: translate a key via a map, falling back to the key itself (EN).
+export const tr = (map, key) => (map && map[key]) || key
