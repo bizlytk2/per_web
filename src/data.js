@@ -261,12 +261,14 @@ export const commentary = [
   // Banking resilience & disruptions
   { label: 'Banking outages & e-payment disruption (Big Read)', outlet: 'CNA', theme: 'Banking resilience & disruptions', url: 'https://www.channelnewsasia.com/singapore/banking-outages-epayment-service-disruption-big-read-3879661' },
   { label: 'Protecting customers after the DBS digital services disruption', outlet: 'TODAY', theme: 'Banking resilience & disruptions', url: 'https://www.todayonline.com/singapore/dbs-digital-banking-service-outage-reliable-experts-2141386' },
+  { label: 'Fintech: disruption or synergy?', outlet: 'The Star', theme: 'Banking resilience & disruptions', url: 'https://www.thestar.com.my/business/2020/06/15/fintech-disruption-or-synergy' },
 
   // Crypto & the new retail investor
   { label: 'Memecoins: new frontier or dicey gamble?', outlet: 'The Straits Times', theme: 'Crypto & the new retail investor', url: 'https://www.straitstimes.com/business/memecoins-a-new-frontier-or-a-dicey-gamble-for-young-investors-in-singapore' },
   { label: 'Financial influencers and the knowledge gap', outlet: 'The Straits Times', theme: 'Crypto & the new retail investor', url: 'https://www.straitstimes.com/business/financial-influencers-say-they-fill-a-gap-in-knowledge-about-money-matters' },
   { label: 'Cryptocurrency commentary', outlet: 'Lianhe Zaobao', theme: 'Crypto & the new retail investor', url: 'https://www.zaobao.com.sg/finance/singapore/story20241121-5357513' },
   { label: 'Digital investing tools help newcomers seize opportunities', outlet: 'Lianhe Zaobao', theme: 'Crypto & the new retail investor', url: 'https://www.zaobao.com.sg/finance/singapore/story20220814-1302011' },
+  { label: 'ICOs: knowing the legit from the lemons', outlet: 'SCMP (sponsored)', theme: 'Crypto & the new retail investor', url: 'https://www.scmp.com/presented/business/topics/china-conference-southeast-asia/article/3046863/icos-knowing-legit-lemons' },
 
   // Insurance & risk
   { label: 'Is pet insurance worth paying for?', outlet: 'The Straits Times', theme: 'Insurance & risk', url: 'https://www.straitstimes.com/singapore/the-truth-about-coverage-is-pet-insurance-worth-paying-for' },
