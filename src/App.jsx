@@ -418,14 +418,19 @@ function Teaching() {
           <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.6rem', fontWeight: 600 }}>
             Courses taught across programmes
           </h3>
-          <span className="nus-legend"><span className="dot" /> Taught at NUS</span>
+          <span className="nus-legend">
+            <span className="lg"><span className="built-star">✦</span> Designed / revamped</span>
+            <span className="lg"><span className="dot" /> Taught at NUS</span>
+          </span>
         </div>
         <div className="breadth breadth-full">
           {teachingBreadth.map((b, i) => (
             <div className="breadth-row" key={i}>
               <div className="lvl">{b.level}</div>
               <div className="cs">{b.courses.map(c => (
-                <span key={c.n} className={c.nus ? 'nus-course' : ''}>{c.n}</span>
+                <span key={c.n} className={c.nus ? 'nus-course' : ''}>
+                  {c.built && <span className="built-star">✦</span>}{c.n}
+                </span>
               ))}</div>
             </div>
           ))}

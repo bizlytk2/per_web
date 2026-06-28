@@ -178,20 +178,20 @@ export const teachingScholarship = [
   },
 ]
 
-// `nus: true` marks courses taught (or currently taught) at NUS — highlighted in the UI.
+// `nus` = taught/currently taught at NUS (highlighted). `built` = course designed or revamped (starred).
 export const teachingBreadth = [
   {
     level: 'EMBA (Chinese)',
     courses: [
       { n: 'Navigating Change: Strategy, Tech & Global Leadership', nus: true },
-      { n: 'Corporate Finance', nus: true },
+      { n: 'Corporate Finance', nus: true, built: true },
       { n: 'Financial Management & Markets', nus: true },
     ],
   },
   {
     level: 'MBA',
     courses: [
-      { n: 'Technological Innovations and Disruptions in Finance', nus: true },
+      { n: 'Technological Innovations and Disruptions in Finance', nus: true, built: true },
       { n: 'Financial Analytics', nus: false },
       { n: 'Data Science for Managers', nus: false },
       { n: 'ChinaTrek', nus: false },
@@ -199,33 +199,37 @@ export const teachingBreadth = [
     ],
   },
   {
-    level: 'Executive Education',
-    courses: [
-      { n: 'Stock Fundamental Valuation', nus: true },
-      { n: 'Blockchain', nus: true },
-      { n: 'Ethical AI', nus: true },
-      { n: 'Finance with Python', nus: true },
-      { n: 'Financing with FinTech', nus: false },
-      { n: 'The Future of Banking', nus: false },
-    ],
-  },
-  {
     level: 'Postgraduate',
     courses: [
-      { n: 'Financial Technology & Analytics', nus: true },
-      { n: 'Fintech Venture Creation', nus: true },
-      { n: 'Statistics & Analytics in Finance', nus: true },
+      { n: 'Contemporary Topics in Markets and Management', nus: true, built: true },
+      { n: 'Financial Technology & Analytics', nus: true, built: true },
+      { n: 'Fintech Venture Creation', nus: true, built: true },
+      { n: 'Statistics & Analytics in Finance', nus: true, built: true },
       { n: 'Empirical Corporate Finance', nus: false },
     ],
   },
   {
     level: 'Undergraduate',
     courses: [
-      { n: 'Fintech & Financial Data Analytics', nus: true },
+      { n: 'Fintech & Financial Data Analytics', nus: true, built: true },
       { n: 'Options & Futures', nus: true },
       { n: 'Derivative Securities', nus: false },
       { n: 'International Finance', nus: false },
       { n: 'Corporate Finance', nus: false },
+    ],
+  },
+  {
+    level: 'Executive Education',
+    courses: [
+      { n: 'Stock Fundamental Valuation', nus: true, built: true },
+      { n: 'Blockchain', nus: true, built: true },
+      { n: 'Ethical AI', nus: true, built: true },
+      { n: 'Finance with Python', nus: true, built: true },
+      { n: 'Enhancing Banking & Finance with AI: Business Analytics for Executives', nus: true, built: true },
+      { n: 'Financial Analysis and Business Decisions for Non-Finance Managers', nus: true, built: true },
+      { n: 'SCTP Startup Founder (Analyzing Financial Statements)', nus: true, built: true },
+      { n: 'Financing with FinTech', nus: false },
+      { n: 'The Future of Banking', nus: false },
     ],
   },
 ]
@@ -331,8 +335,12 @@ export const grants = [
   { role: 'Collaborator', amount: 'SGD 26,120', title: 'Politicians and Directors in Social Networks', funder: 'Sim Kee Boon Institute, SMU', year: '2011' },
 ]
 
-// Testimonials — drop in { quote, name, role } objects when supplied.
-export const testimonials = []
+// Testimonials.
+export const testimonials = [
+  { quote: 'This course is less for me, but more for everyone else.', name: 'CFO', role: 'Corporate Finance (EMBA)' },
+  { quote: 'The viva forced me to defend assumptions beyond what slides could hide.', name: 'Student', role: 'on the ERLT oral defence' },
+  { quote: 'New possibilities opened up.', name: 'MFin student', role: 'after completing a SQL course during an internship' },
+]
 
 // Headshot lives in /public. Drop a file named exactly this to display it.
 export const headshot = 'headshot.jpg'
