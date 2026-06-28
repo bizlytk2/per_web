@@ -9,13 +9,15 @@ import {
 import { L, tr } from './i18n.js'
 
 /* ---------- Language context ---------- */
-const LangCtx = React.createContext({ lang: 'en', t: L.en, setLang: () => {} })
+const LangCtx = React.createContext({ lang: 'en', t: L.en, setLang: () => {}, theme: 'light', setTheme: () => {} })
 const useApp = () => React.useContext(LangCtx)
 
 /* ---------- Animated background ---------- */
 function ParticleField() {
   const ref = useRef(null)
+  const { theme } = useApp()
   useEffect(() => {
+    if (theme !== 'dark') return
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     const canvas = ref.current
     const ctx = canvas.getContext('2d')
@@ -63,7 +65,7 @@ function ParticleField() {
     window.addEventListener('resize', resize)
     window.addEventListener('mousemove', onMove)
     return () => { cancelAnimationFrame(raf); window.removeEventListener('resize', resize); window.removeEventListener('mousemove', onMove) }
-  }, [])
+  }, [theme])
   return <div className="bg-field"><canvas ref={ref} /></div>
 }
 
@@ -122,7 +124,7 @@ const NAV_KEYS = [
   ['media', '#media'], ['service', '#service'], ['cv', '#cv'], ['contact', '#contact'],
 ]
 function Nav() {
-  const { t, lang, setLang } = useApp()
+  const { t, lang, setLang, theme, setTheme } = useApp()
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
   useEffect(() => {
@@ -134,6 +136,9 @@ function Nav() {
     <nav className={`nav ${scrolled ? 'scrolled' : ''}`}>
       <a className="brand" href="#top">Yen Teik <b>Lee</b></a>
       <div className="nav-right">
+        <button className="theme-btn" onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')} aria-label="Toggle light/dark theme">
+          {theme === 'dark' ? '☀' : '☾'}
+        </button>
         <button className="lang-btn" onClick={() => setLang(lang === 'en' ? 'zh' : 'en')} aria-label="Switch language">
           {t.langToggle}
         </button>
@@ -613,15 +618,22 @@ export default function App() {
   const [lang, setLang] = useState(() => {
     try { return localStorage.getItem('lang') || 'en' } catch { return 'en' }
   })
+  const [theme, setTheme] = useState(() => {
+    try { return localStorage.getItem('theme') || 'light' } catch { return 'light' }
+  })
   useEffect(() => {
     try { localStorage.setItem('lang', lang) } catch {}
     document.documentElement.lang = lang === 'zh' ? 'zh-Hans' : 'en'
   }, [lang])
+  useEffect(() => {
+    try { localStorage.setItem('theme', theme) } catch {}
+    document.documentElement.dataset.theme = theme
+  }, [theme])
   const { scrollYProgress } = useScroll()
   const scaleX = useSpring(scrollYProgress, { stiffness: 120, damping: 30, mass: 0.4 })
   const t = L[lang]
   return (
-    <LangCtx.Provider value={{ lang, t, setLang }}>
+    <LangCtx.Provider value={{ lang, t, setLang, theme, setTheme }}>
       <ParticleField />
       <Blobs />
       <motion.div className="progress" style={{ scaleX, width: '100%' }} />
