@@ -311,8 +311,8 @@ function Teaching() {
         <div className="list-head" style={{ margin: '64px 0 22px' }}>
           <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.6rem', fontWeight: 600 }}>{t.coursesTitle}</h3>
           <span className="nus-legend">
-            <span className="lg"><span className="built-star">✦</span> {t.legend.designed}</span>
-            <span className="lg"><span className="dot" /> {t.legend.taught}</span>
+            <span className="lg"><span className="swatch built" /> {t.legend.designed}</span>
+            <span className="lg"><span className="swatch nus" /> {t.legend.taught}</span>
           </span>
         </div>
         <div className="breadth breadth-full">
@@ -320,8 +320,8 @@ function Teaching() {
             <div className="breadth-row" key={i}>
               <div className="lvl">{tr(t.levels, b.level)}</div>
               <div className="cs">{b.courses.map(c => (
-                <span key={c.n} className={c.nus ? 'nus-course' : ''}>
-                  {c.built && <span className="built-star">✦</span>}{lang === 'zh' && c.zh ? c.zh : c.n}
+                <span key={c.n} className={c.built ? 'built-course' : (c.nus ? 'nus-course' : '')}>
+                  {lang === 'zh' && c.zh ? c.zh : c.n}
                 </span>
               ))}</div>
             </div>

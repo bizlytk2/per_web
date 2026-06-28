@@ -273,14 +273,21 @@ section { position: relative; padding: clamp(80px, 12vh, 160px) 0; }
 .breadth-full { margin-top: 8px; }
 .nus-course {
   color: var(--text) !important;
-  background: linear-gradient(120deg, rgba(255,122,24,0.16), rgba(255,46,146,0.16)) !important;
-  border-color: rgba(255,122,24,0.5) !important;
+  background: linear-gradient(120deg, rgba(255,122,24,0.15), rgba(255,46,146,0.15)) !important;
+  border-color: rgba(255,122,24,0.45) !important;
   font-weight: 500;
+}
+.built-course {
+  color: var(--text) !important;
+  background: linear-gradient(120deg, rgba(255,122,24,0.48), rgba(255,46,146,0.48)) !important;
+  border-color: rgba(255,122,24,0.85) !important;
+  font-weight: 600;
 }
 .nus-legend { display: inline-flex; align-items: center; gap: 16px; font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.06em; color: var(--text-dim); flex-wrap: wrap; }
 .nus-legend .lg { display: inline-flex; align-items: center; gap: 7px; }
-.nus-legend .dot { width: 12px; height: 12px; border-radius: 3px; background: var(--grad-hot); border: 1px solid rgba(255,122,24,0.5); }
-.built-star { color: var(--cyan); font-size: 0.85em; margin-right: 5px; }
+.nus-legend .swatch { width: 14px; height: 14px; border-radius: 4px; display: inline-block; }
+.nus-legend .swatch.nus { background: linear-gradient(120deg, rgba(255,122,24,0.15), rgba(255,46,146,0.15)); border: 1px solid rgba(255,122,24,0.45); }
+.nus-legend .swatch.built { background: linear-gradient(120deg, rgba(255,122,24,0.48), rgba(255,46,146,0.48)); border: 1px solid rgba(255,122,24,0.85); }
 
 .pub-list { display: flex; flex-direction: column; gap: 16px; }
 .pub {
