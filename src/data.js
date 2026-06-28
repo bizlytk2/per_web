@@ -180,57 +180,58 @@ export const teachingScholarship = [
 ]
 
 // `nus` = taught/currently taught at NUS (highlighted). `built` = course designed or revamped (starred).
+// `zh` = Chinese course name shown in Mandarin mode (review-drafted).
 export const teachingBreadth = [
   {
     level: 'EMBA (Chinese)',
     courses: [
-      { n: 'Navigating Change: Strategy, Tech & Global Leadership', nus: true },
-      { n: 'Corporate Finance', nus: true, built: true },
-      { n: 'Financial Management & Markets', nus: true },
+      { n: 'Navigating Change: Strategy, Tech & Global Leadership', zh: '驾驭变革：战略、科技与全球领导力', nus: true },
+      { n: 'Corporate Finance', zh: '公司金融', nus: true, built: true },
+      { n: 'Financial Management & Markets', zh: '财务管理与金融市场', nus: true },
     ],
   },
   {
     level: 'MBA',
     courses: [
-      { n: 'Technological Innovations and Disruptions in Finance', nus: true, built: true },
-      { n: 'Financial Analytics', nus: false },
-      { n: 'Data Science for Managers', nus: false },
-      { n: 'ChinaTrek', nus: false },
-      { n: 'Managerial Finance', nus: false },
+      { n: 'Technological Innovations and Disruptions in Finance', zh: '金融中的技术创新与颠覆', nus: true, built: true },
+      { n: 'Financial Analytics', zh: '金融分析', nus: false },
+      { n: 'Data Science for Managers', zh: '管理者的数据科学', nus: false },
+      { n: 'ChinaTrek', zh: '中国商业考察（ChinaTrek）', nus: false },
+      { n: 'Managerial Finance', zh: '管理财务', nus: false },
     ],
   },
   {
     level: 'Postgraduate',
     courses: [
-      { n: 'Contemporary Topics in Markets and Management', nus: true, built: true },
-      { n: 'Financial Technology & Analytics', nus: true, built: true },
-      { n: 'Fintech Venture Creation', nus: true, built: true },
-      { n: 'Statistics & Analytics in Finance', nus: true, built: true },
-      { n: 'Empirical Corporate Finance', nus: false },
+      { n: 'Contemporary Topics in Markets and Management', zh: '市场与管理前沿专题', nus: true, built: true },
+      { n: 'Financial Technology & Analytics', zh: '金融科技与分析', nus: true, built: true },
+      { n: 'Fintech Venture Creation', zh: '金融科技创业', nus: true, built: true },
+      { n: 'Statistics & Analytics in Finance', zh: '金融统计与分析', nus: true, built: true },
+      { n: 'Empirical Corporate Finance', zh: '实证公司金融', nus: false },
     ],
   },
   {
     level: 'Undergraduate',
     courses: [
-      { n: 'Fintech & Financial Data Analytics', nus: true, built: true },
-      { n: 'Options & Futures', nus: true },
-      { n: 'Derivative Securities', nus: false },
-      { n: 'International Finance', nus: false },
-      { n: 'Corporate Finance', nus: false },
+      { n: 'Fintech & Financial Data Analytics', zh: '金融科技与金融数据分析', nus: true, built: true },
+      { n: 'Options & Futures', zh: '期权与期货', nus: true },
+      { n: 'Derivative Securities', zh: '衍生证券', nus: false },
+      { n: 'International Finance', zh: '国际金融', nus: false },
+      { n: 'Corporate Finance', zh: '公司金融', nus: false },
     ],
   },
   {
     level: 'Executive Education',
     courses: [
-      { n: 'Stock Fundamental Valuation', nus: true, built: true },
-      { n: 'Blockchain', nus: true, built: true },
-      { n: 'Ethical AI', nus: true, built: true },
-      { n: 'Finance with Python', nus: true, built: true },
-      { n: 'Enhancing Banking & Finance with AI: Business Analytics for Executives', nus: true, built: true },
-      { n: 'Financial Analysis and Business Decisions for Non-Finance Managers', nus: true, built: true },
-      { n: 'SCTP Startup Founder (Analyzing Financial Statements)', nus: true, built: true },
-      { n: 'Financing with FinTech', nus: false },
-      { n: 'The Future of Banking', nus: false },
+      { n: 'Stock Fundamental Valuation', zh: '股票基本面估值', nus: true, built: true },
+      { n: 'Blockchain', zh: '区块链', nus: true, built: true },
+      { n: 'Ethical AI', zh: '人工智能伦理', nus: true, built: true },
+      { n: 'Finance with Python', zh: '用 Python 学金融', nus: true, built: true },
+      { n: 'Enhancing Banking & Finance with AI: Business Analytics for Executives', zh: '以 AI 赋能银行与金融：高管商业分析', nus: true, built: true },
+      { n: 'Financial Analysis and Business Decisions for Non-Finance Managers', zh: '非财务经理的财务分析与商业决策', nus: true, built: true },
+      { n: 'SCTP Startup Founder (Analyzing Financial Statements)', zh: 'SCTP 创业者课程（财务报表分析）', nus: true, built: true },
+      { n: 'Financing with FinTech', zh: '金融科技融资', nus: false },
+      { n: 'The Future of Banking', zh: '银行业的未来', nus: false },
     ],
   },
 ]

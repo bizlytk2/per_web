@@ -262,7 +262,7 @@ function About() {
 
 /* ---------- Teaching ---------- */
 function Teaching() {
-  const { t } = useApp()
+  const { t, lang } = useApp()
   return (
     <section id="teaching" className="wrap">
       <Reveal>
@@ -321,7 +321,7 @@ function Teaching() {
               <div className="lvl">{tr(t.levels, b.level)}</div>
               <div className="cs">{b.courses.map(c => (
                 <span key={c.n} className={c.nus ? 'nus-course' : ''}>
-                  {c.built && <span className="built-star">✦</span>}{c.n}
+                  {c.built && <span className="built-star">✦</span>}{lang === 'zh' && c.zh ? c.zh : c.n}
                 </span>
               ))}</div>
             </div>
