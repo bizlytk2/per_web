@@ -245,7 +245,7 @@ function About() {
   return (
     <section id="about" className="wrap">
       <Reveal>
-        <span className="eyebrow">00 — {t.eyebrow.about}</span>
+        <span className="eyebrow">01 — {t.eyebrow.about}</span>
         <Title part={t.titles.about} />
       </Reveal>
       <div className="about-grid">
@@ -266,7 +266,7 @@ function Teaching() {
   return (
     <section id="teaching" className="wrap">
       <Reveal>
-        <span className="eyebrow">01 — {t.eyebrow.teaching}</span>
+        <span className="eyebrow">02 — {t.eyebrow.teaching}</span>
         <Title part={t.titles.teaching} cool />
       </Reveal>
       <div className="grid-2">
@@ -367,7 +367,7 @@ function Research() {
   return (
     <section id="research" className="wrap">
       <Reveal>
-        <span className="eyebrow">02 — {t.eyebrow.research}</span>
+        <span className="eyebrow">03 — {t.eyebrow.research}</span>
         <Title part={t.titles.research} />
       </Reveal>
       <div className="grid-2">
@@ -452,7 +452,7 @@ function Media() {
   return (
     <section id="media" className="wrap">
       <Reveal>
-        <span className="eyebrow">03 — {t.eyebrow.media}</span>
+        <span className="eyebrow">04 — {t.eyebrow.media}</span>
         <Title part={t.titles.media} />
         <p className="lede" style={{ maxWidth: 620, marginBottom: 36 }}>{t.media.intro}</p>
       </Reveal>
@@ -502,7 +502,7 @@ function LeadershipService() {
   return (
     <section id="service" className="wrap">
       <Reveal>
-        <span className="eyebrow">04 — {t.eyebrow.service}</span>
+        <span className="eyebrow">05 — {t.eyebrow.service}</span>
         <Title part={t.titles.service} cool />
       </Reveal>
       <div className="grid-2">
@@ -554,7 +554,7 @@ function CV() {
   return (
     <section id="cv" className="wrap">
       <Reveal>
-        <span className="eyebrow">05 — {t.eyebrow.cv}</span>
+        <span className="eyebrow">06 — {t.eyebrow.cv}</span>
         <Title part={t.titles.cv} cool />
       </Reveal>
       <Reveal delay={0.05}>
