@@ -127,10 +127,20 @@ function Nav() {
   const { t, lang, setLang, theme, setTheme } = useApp()
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  const [active, setActive] = useState('')
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40)
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+  useEffect(() => {
+    const ids = NAV_KEYS.map(([, href]) => href.slice(1))
+    const obs = new IntersectionObserver(
+      (entries) => entries.forEach(e => { if (e.isIntersecting) setActive(e.target.id) }),
+      { rootMargin: '-45% 0px -50% 0px', threshold: 0 }
+    )
+    ids.forEach(id => { const el = document.getElementById(id); if (el) obs.observe(el) })
+    return () => obs.disconnect()
   }, [])
   return (
     <nav className={`nav ${scrolled ? 'scrolled' : ''}`}>
@@ -145,7 +155,7 @@ function Nav() {
         <button className="nav-toggle" aria-label="Toggle menu" onClick={() => setOpen(o => !o)}>≡</button>
         <div className={`links ${open ? 'open' : ''}`}>
           {NAV_KEYS.map(([key, href]) => (
-            <a key={href} href={href} onClick={() => setOpen(false)}>{t.nav[key]}</a>
+            <a key={href} href={href} className={active === href.slice(1) ? 'active' : ''} onClick={() => setOpen(false)}>{t.nav[key]}</a>
           ))}
         </div>
       </div>
@@ -207,7 +217,7 @@ function Stats() {
         <div className="stats">
           {stats.map((s, i) => (
             <div className="stat" key={i}>
-              <div className="num grad-text cool"><Counter value={s.value} suffix={s.suffix} raw={s.raw} /></div>
+              <div className="num"><Counter value={s.value} suffix={s.suffix} raw={s.raw} /></div>
               <div className="lbl">{t.statLabels[i]}</div>
             </div>
           ))}
@@ -322,16 +332,16 @@ function Teaching() {
       {t.testimonials.length > 0 && (
         <>
           <Reveal><h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.6rem', margin: '64px 0 22px', fontWeight: 600 }}>{t.inTheirWords}</h3></Reveal>
-          <div className="quote-grid">
-            {t.testimonials.map((it, i) => (
-              <Reveal key={i} delay={Math.min(i * 0.06, 0.24)}>
-                <figure className="quote-card">
+          <Reveal>
+            <div className="quote-grid">
+              {t.testimonials.map((it, i) => (
+                <figure className="quote-card" key={i}>
                   <blockquote>“{it.quote}”</blockquote>
                   <figcaption>{it.name}{it.role ? <span> · {it.role}</span> : null}</figcaption>
                 </figure>
-              </Reveal>
-            ))}
-          </div>
+              ))}
+            </div>
+          </Reveal>
         </>
       )}
     </section>
@@ -387,10 +397,10 @@ function Research() {
           </button>
         )}
       </div>
-      <div className="pub-list">
-        {pubs.map((p) => (
-          <Reveal key={p.title} delay={0}>
-            <article className="pub">
+      <Reveal>
+        <div className="pub-list">
+          {pubs.map((p) => (
+            <article className="pub" key={p.title}>
               <div className="yr">{p.year}</div>
               <div>
                 <PaperLink url={p.url} className="pub-title-link"><h4>{p.title} {p.url && <span className="ext">↗</span>}</h4></PaperLink>
@@ -405,16 +415,16 @@ function Research() {
                 )}
               </div>
             </article>
-          </Reveal>
-        ))}
-        {pubs.length === 0 && <p className="empty-note">{t.research.noPubs}</p>}
-      </div>
+          ))}
+          {pubs.length === 0 && <p className="empty-note">{t.research.noPubs}</p>}
+        </div>
+      </Reveal>
 
       <Reveal><h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.8rem', margin: '70px 0 28px', fontWeight: 600 }}>{t.research.workingPapers}</h3></Reveal>
-      <div className="wp-grid">
-        {wps.map((p) => (
-          <Reveal key={p.title} delay={0}>
-            <article className="card wp">
+      <Reveal>
+        <div className="wp-grid">
+          {wps.map((p) => (
+            <article className="card wp" key={p.title}>
               <PaperLink url={p.url} className="pub-title-link"><h4>{p.title} {p.url && <span className="ext">↗</span>}</h4></PaperLink>
               <div className="auth">{p.authors}</div>
               <div className="tags" style={{ marginTop: 10 }}>
@@ -424,10 +434,10 @@ function Research() {
               </div>
               <span className="status">{tr(t.wpStatus, p.status)}</span>
             </article>
-          </Reveal>
-        ))}
-        {wps.length === 0 && <p className="empty-note">{t.research.noWps}</p>}
-      </div>
+          ))}
+          {wps.length === 0 && <p className="empty-note">{t.research.noWps}</p>}
+        </div>
+      </Reveal>
     </section>
   )
 }
@@ -456,32 +466,32 @@ function Media() {
         </div>
       </Reveal>
 
-      <div className="media-grid">
-        {items.map((c) => (
-          <Reveal key={c.label} delay={0}>
-            <a className="card commentary-card" href={c.url} target="_blank" rel="noopener noreferrer">
+      <Reveal>
+        <div className="media-grid">
+          {items.map((c) => (
+            <a className="card commentary-card" key={c.label} href={c.url} target="_blank" rel="noopener noreferrer">
               <span className="c-outlet">{c.outlet}</span>
               <span className="c-title">{c.label} <span className="arrow">↗</span></span>
               <button className="c-theme" onClick={(e) => { e.preventDefault(); toggle(c.theme) }}>{tr(t.themes, c.theme)}</button>
             </a>
-          </Reveal>
-        ))}
-      </div>
+          ))}
+        </div>
+      </Reveal>
 
       <Reveal delay={0.1}>
         <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.8rem', margin: '70px 0 10px', fontWeight: 600 }}>{t.media.researchInPress}</h3>
         <p style={{ color: 'var(--text-dim)', maxWidth: 560, marginBottom: 28 }}>{t.media.pressSub}</p>
       </Reveal>
-      <div className="press-grid">
-        {researchPress.map((r) => (
-          <Reveal key={r.label} delay={0}>
-            <a className="card press-card" href={r.url} target="_blank" rel="noopener noreferrer">
+      <Reveal>
+        <div className="press-grid">
+          {researchPress.map((r) => (
+            <a className="card press-card" key={r.label} href={r.url} target="_blank" rel="noopener noreferrer">
               <span className="c-title">{r.label} <span className="arrow">↗</span></span>
               <span className="press-meta">{r.outlet}{r.year ? ` · ${r.year}` : ''}</span>
             </a>
-          </Reveal>
-        ))}
-      </div>
+          ))}
+        </div>
+      </Reveal>
     </section>
   )
 }
@@ -613,6 +623,20 @@ function Footer() {
   )
 }
 
+/* ---------- Back to top ---------- */
+function BackToTop() {
+  const [show, setShow] = useState(false)
+  useEffect(() => {
+    const onScroll = () => setShow(window.scrollY > 600)
+    window.addEventListener('scroll', onScroll)
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+  return (
+    <button className={`to-top ${show ? 'show' : ''}`} aria-label="Back to top"
+      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>↑</button>
+  )
+}
+
 /* ---------- App ---------- */
 export default function App() {
   const [lang, setLang] = useState(() => {
@@ -649,6 +673,7 @@ export default function App() {
         <CV />
       </main>
       <Footer />
+      <BackToTop />
     </LangCtx.Provider>
   )
 }
