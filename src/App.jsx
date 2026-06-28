@@ -1,9 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { motion, useScroll, useSpring, useTransform, useInView, animate } from 'framer-motion'
 import {
-  profile, bio, stats, focusAreas, researchPhilosophy, publications, workingPapers,
-  teachingPhilosophy, teachingImpact, teachingScholarship, teachingBreadth, teachingInitiatives,
-  mediaThemes, commentary, researchPress, appointments, education, skills, cvFile,
+  profile, bio, headshot, stats, focusAreas, researchPhilosophy, publications, workingPapers,
+  teachingPhilosophy, teachingImpact, teachingScholarship, teachingBreadth, teachingInitiatives, testimonials,
+  mediaThemes, commentary, researchPress,
+  leadershipRoles, serviceRoles, refereeing, grants,
+  appointments, education, skills, cvFile,
 } from './data.js'
 
 /* ---------- Animated background ---------- */
@@ -117,6 +119,7 @@ const NAV = [
   ['Teaching', '#teaching'],
   ['Research', '#research'],
   ['Media', '#media'],
+  ['Service', '#service'],
   ['CV', '#cv'],
   ['Contact', '#contact'],
 ]
@@ -153,6 +156,7 @@ function Hero() {
         <motion.div className="role"
           initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
           {profile.title} · {profile.org}
+          <span className="role-lead">{profile.roleLine}</span>
         </motion.div>
         <h1>
           {'Yen Teik'.split('').map((c, i) => (
@@ -212,6 +216,21 @@ function Stats() {
   )
 }
 
+/* ---------- Headshot with graceful fallback ---------- */
+function Headshot() {
+  const [ok, setOk] = useState(true)
+  const src = `${import.meta.env.BASE_URL}${headshot}`
+  return (
+    <div className="photo-frame">
+      {ok ? (
+        <img src={src} alt="Yen Teik Lee" onError={() => setOk(false)} />
+      ) : (
+        <div className="photo-fallback"><span>YTL</span></div>
+      )}
+    </div>
+  )
+}
+
 /* ---------- About / Bio ---------- */
 function About() {
   return (
@@ -220,12 +239,17 @@ function About() {
         <span className="eyebrow">00 — About</span>
         <h2 className="section-title">Who I <span className="grad-text">am</span></h2>
       </Reveal>
-      <div className="bio">
-        {bio.map((p, i) => (
-          <Reveal key={i} delay={i * 0.06}>
-            <p className={i === 0 ? 'bio-lead' : ''}>{p}</p>
-          </Reveal>
-        ))}
+      <div className="about-grid">
+        <Reveal>
+          <Headshot />
+        </Reveal>
+        <div className="bio">
+          {bio.map((p, i) => (
+            <Reveal key={i} delay={i * 0.06}>
+              <p className={i === 0 ? 'bio-lead' : ''}>{p}</p>
+            </Reveal>
+          ))}
+        </div>
       </div>
     </section>
   )
@@ -407,6 +431,73 @@ function Teaching() {
           ))}
         </div>
       </Reveal>
+
+      {testimonials.length > 0 && (
+        <>
+          <Reveal><h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.6rem', margin: '64px 0 22px', fontWeight: 600 }}>In their words</h3></Reveal>
+          <div className="quote-grid">
+            {testimonials.map((t, i) => (
+              <Reveal key={i} delay={Math.min(i * 0.06, 0.24)}>
+                <figure className="quote-card">
+                  <blockquote>“{t.quote}”</blockquote>
+                  <figcaption>{t.name}{t.role ? <span> · {t.role}</span> : null}</figcaption>
+                </figure>
+              </Reveal>
+            ))}
+          </div>
+        </>
+      )}
+    </section>
+  )
+}
+
+/* ---------- Leadership & Service ---------- */
+function LeadershipService() {
+  return (
+    <section id="service" className="wrap">
+      <Reveal>
+        <span className="eyebrow">04 — Leadership & Service</span>
+        <h2 className="section-title">Building the <span className="grad-text cool">institution</span></h2>
+      </Reveal>
+      <div className="grid-2">
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+          <Reveal>
+            <div className="fact-block card">
+              <h5>Academic & programme leadership</h5>
+              {leadershipRoles.map((a, i) => (
+                <div className="row" key={i}><span className="l">{a.role}</span><span className="r">{a.period}</span></div>
+              ))}
+            </div>
+          </Reveal>
+          <Reveal delay={0.06}>
+            <div className="fact-block card">
+              <h5>Service & committees</h5>
+              {serviceRoles.map((a, i) => (
+                <div className="row" key={i}><span className="l">{a.role}</span><span className="r">{a.period}</span></div>
+              ))}
+              <div className="row" style={{ borderBottom: 'none' }}>
+                <span className="l">Ad-hoc referee</span>
+                <span className="r" style={{ whiteSpace: 'normal', textAlign: 'right' }}>{refereeing.join(', ')}</span>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+        <Reveal delay={0.1}>
+          <div className="fact-block card">
+            <h5>Grants & funding</h5>
+            {grants.map((g, i) => (
+              <div className="grant-row" key={i}>
+                <div className="grant-top">
+                  <span className="grant-amt">{g.amount}</span>
+                  <span className="grant-role">{g.role} · {g.year}</span>
+                </div>
+                <div className="grant-title">{g.title}</div>
+                <div className="grant-funder">{g.funder}</div>
+              </div>
+            ))}
+          </div>
+        </Reveal>
+      </div>
     </section>
   )
 }
@@ -478,7 +569,7 @@ function CV() {
   return (
     <section id="cv" className="wrap">
       <Reveal>
-        <span className="eyebrow">04 — Curriculum Vitae</span>
+        <span className="eyebrow">05 — Curriculum Vitae</span>
         <h2 className="section-title">At a <span className="grad-text cool">glance</span></h2>
       </Reveal>
       <Reveal delay={0.05}>
@@ -562,6 +653,7 @@ export default function App() {
         <Teaching />
         <Research />
         <Media />
+        <LeadershipService />
         <CV />
       </main>
       <Footer />

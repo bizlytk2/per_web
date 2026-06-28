@@ -299,4 +299,42 @@ export const skills = {
   certification: 'Chartered Alternative Investment Analyst (CAIA), Levels I & II',
 }
 
+// Short bio (press / meta use). Third-person, launch-ready.
+export const bioShort =
+  'Yen Teik Lee is a Senior Lecturer in Finance and Deputy Academic Director of the EMBA-Chinese programme at NUS Business School. An award-winning educator and researcher of how people make everyday financial decisions, his work spans leading journals and outlets from Research Policy to The Economist.'
+
+// Academic & programme leadership.
+export const leadershipRoles = [
+  { role: 'Deputy Academic Director, NUS Executive MBA (Chinese)', period: '2025 – Present' },
+  { role: 'Director, Center for Financial Innovation, ASB', period: '2018 – 2020' },
+  { role: 'MFIN Programme Committee, NUS Business School', period: '2021 – 2026' },
+  { role: 'Teaching Excellence Council (TEC), NUS Business School', period: '2023 – 2026' },
+  { role: 'BIZ representative, Master of Digital FinTech, NUS', period: '2023 – 2026' },
+]
+
+// Service & committees.
+export const serviceRoles = [
+  { role: 'Financial Database Committee, NUS Business School', period: '2023 – 2026' },
+  { role: 'Recruiting Committee, Asia School of Business', period: '2019' },
+  { role: 'Recruiting Committee, School of Finance, SUFE', period: '2014 – 2015' },
+  { role: 'Session Chair — Econometric Society Asia; SMU-ESSEC Symposium', period: '2011, 2014' },
+]
+
+export const refereeing = ['Research Policy', 'Management Science', 'Journal of FinTech']
+
+// Grants — amounts shown per request.
+export const grants = [
+  { role: 'Collaborator', amount: 'SGD 159,719', title: 'Fintech Lending and Borrower Behaviours', funder: 'AIDF, NUS', year: '2024' },
+  { role: 'Co-PI', amount: 'SGD 4,301', title: 'Bespoke 24/7 AI Teaching Assistant for Higher Education', funder: 'Teaching Enhancement Grant, NUS', year: '2024' },
+  { role: 'Co-PI', amount: 'SGD 5,930', title: 'Multidisciplinary Approach to Sustainability Education', funder: 'Teaching Enhancement Grant, NUS', year: '2023' },
+  { role: 'Co-PI', amount: 'RMB 800,000', title: 'Risk Management and Corporate Governance', funder: 'Young Scholar Pioneer Group Initiative, SUFE', year: '2014' },
+  { role: 'Collaborator', amount: 'SGD 26,120', title: 'Politicians and Directors in Social Networks', funder: 'Sim Kee Boon Institute, SMU', year: '2011' },
+]
+
+// Testimonials — drop in { quote, name, role } objects when supplied.
+export const testimonials = []
+
+// Headshot lives in /public. Drop a file named exactly this to display it.
+export const headshot = 'headshot.jpg'
+
 export const cvFile = 'YTL-CV-June-2026.pdf'
