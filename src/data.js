@@ -14,6 +14,7 @@ export const profile = {
     'Finance Department, BIZ1 07-60 · National University of Singapore · 15 Kent Ridge Drive, Singapore 119245',
   profileUrl: 'https://discovery.nus.edu.sg/18324-yen-teik-lee/publications',
   linkedin: 'https://sg.linkedin.com/in/yen-teik-lee',
+  scholar: 'https://scholar.google.com/citations?user=CBkS4c8AAAAJ&hl=en',
   interests: ['Corporate Finance', 'Digital Finance', 'FinTech', 'Corporate Innovation', 'Governance'],
 }
 

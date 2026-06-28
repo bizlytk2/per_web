@@ -40,7 +40,7 @@ export const L = {
       'My work follows two threads. One is corporate finance and innovation: how boards, clawbacks, and political ties shape what firms build and how they perform. The other is digital finance: how fintech platforms, cashless payments, and AI reshape the financial lives of firms and households.',
       'I rely on natural experiments, regulatory shifts, and large-scale data to draw causal lines that hold. And I write for the people a result touches — a regulator, a board, a borrower — not only for the referee.',
     ],
-    research: { exploreFocus: 'Explore by focus area', selectedPubs: 'Selected publications', workingPapers: 'Working papers', filtering: 'Filtering:', noPubs: 'No publications in this filter.', noWps: 'No working papers in this filter.' },
+    research: { exploreFocus: 'Explore by focus area', selectedPubs: 'Selected publications', workingPapers: 'Working papers', filtering: 'Filtering:', noPubs: 'No publications in this filter.', noWps: 'No working papers in this filter.', scholar: 'Full publication list on Google Scholar ↗' },
     teachingPhilosophy: [
       'Finance is a language of decisions, and my job is to make people fluent enough to act — a CFO weighing a buyback, a founder pricing a round, a manager reading a balance sheet for the first time.',
       'I teach across the full arc, undergraduate to EMBA, in English and Mandarin, from options pricing to blockchain, Python, and ethical AI. The method holds throughout: pair a rigorous framework with a live problem, then have students build, present, and defend their own answer.',
@@ -79,7 +79,7 @@ export const L = {
     grantRole: {},
     cv: { download: 'Download full CV (PDF) ↓', appointments: 'Academic appointments', education: 'Education', skills: 'Skills & credentials', software: 'Software', languages: 'Languages', certification: 'Certification' },
     languages: ['English (fluent)', 'Chinese (native)', 'Hokkien', 'Cantonese'],
-    footer: { nusProfile: 'NUS profile ↗', linkedin: 'LinkedIn ↗', metaRight: 'NUS Business School · Singapore' },
+    footer: { nusProfile: 'NUS profile ↗', linkedin: 'LinkedIn ↗', scholar: 'Google Scholar ↗', metaRight: 'NUS Business School · Singapore' },
   },
 
   zh: {
@@ -119,7 +119,7 @@ export const L = {
       '我的研究沿两条主线展开。其一是公司金融与创新：董事会、追回条款（clawback）与政治关联如何影响企业的创造与表现。其二是数字金融：金融科技平台、无现金支付与人工智能如何重塑企业与家庭的金融生活。',
       '我借助自然实验、监管制度变迁与大规模数据，勾勒出站得住脚的因果关系。我的写作面向研究结果所触及的人——监管者、董事会、借款人——而不仅仅是审稿人。',
     ],
-    research: { exploreFocus: '按研究领域浏览', selectedPubs: '代表性论文', workingPapers: '工作论文', filtering: '筛选：', noPubs: '该筛选下暂无论文。', noWps: '该筛选下暂无工作论文。' },
+    research: { exploreFocus: '按研究领域浏览', selectedPubs: '代表性论文', workingPapers: '工作论文', filtering: '筛选：', noPubs: '该筛选下暂无论文。', noWps: '该筛选下暂无工作论文。', scholar: '在谷歌学术查看完整论文列表 ↗' },
     teachingPhilosophy: [
       '金融是一门关于决策的语言，而我的任务是让人们足够流利，从而付诸行动——无论是权衡股票回购的CFO、为融资轮定价的创业者，还是第一次研读资产负债表的管理者。',
       '我的教学贯穿本科到EMBA，以中英双语授课，内容从期权定价到区块链、Python 与人工智能伦理。方法始终如一：将严谨的框架与真实、当下的问题结合，再让学生构建、汇报并捍卫自己的答案。',
@@ -158,7 +158,7 @@ export const L = {
     grantRole: { Collaborator: '合作者', 'Co-PI': '共同负责人' },
     cv: { download: '下载完整简历（PDF）↓', appointments: '学术任职', education: '教育背景', skills: '技能与资质', software: '软件', languages: '语言', certification: '资格认证' },
     languages: ['英语（流利）', '中文（母语）', '福建话', '广东话'],
-    footer: { nusProfile: '新国大主页 ↗', linkedin: '领英 ↗', metaRight: '新加坡国立大学商学院 · 新加坡' },
+    footer: { nusProfile: '新国大主页 ↗', linkedin: '领英 ↗', scholar: '谷歌学术 ↗', metaRight: '新加坡国立大学商学院 · 新加坡' },
   },
 }
 
