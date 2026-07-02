@@ -249,6 +249,7 @@ export const mediaThemes = [
   'Banking resilience & disruptions',
   'Crypto & the new retail investor',
   'Insurance & risk',
+  'Business failure & crisis',
 ]
 
 export const commentary = [
@@ -274,6 +275,9 @@ export const commentary = [
   { label: 'Is pet insurance worth paying for?', outlet: 'The Straits Times', theme: 'Insurance & risk', url: 'https://www.straitstimes.com/singapore/the-truth-about-coverage-is-pet-insurance-worth-paying-for' },
   { label: 'Pet insurance demand still rising, but growth may be losing bite', outlet: 'The Business Times', theme: 'Insurance & risk', url: 'https://www.businesstimes.com.sg/opinion-features/pet-insurance-demand-still-rising-growth-may-be-losing-bite' },
   { label: 'CrowdStrike meltdown may shore up cyber insurance premiums', outlet: 'Insurance Asia', theme: 'Insurance & risk', url: 'https://insuranceasia.com/insurance/exclusive/crowdstrike-meltdown-may-shore-cyber-insurance-premiums' },
+
+  // Business failure & crisis
+  { label: 'The kindest thing you can do for a failing business is close it', outlet: 'The Straits Times', theme: 'Business failure & crisis', url: 'https://bizbeat.nus.edu.sg/thought-leadership/article/the-kindest-thing-you-can-do-for-a-failing-business-is-close-it/' },
 ]
 
 // Coverage of the research itself — distinct from op-ed commentary.

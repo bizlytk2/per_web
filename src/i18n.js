@@ -188,7 +188,7 @@ export const L = {
       intro: '精选评论，聚焦人们真正面对的金钱问题——无现金支付与迷因币、银行宕机与网络保险，以及位高权重的政客是否会偏袒自己的朋友。',
       allTopics: '全部主题', researchInPress: '研究见诸媒体', pressSub: '当研究本身成为新闻。',
     },
-    themes: { 'Payments & the cashless society': '支付与无现金社会', 'Banking resilience & disruptions': '银行韧性与中断', 'Crypto & the new retail investor': '加密货币与新一代散户', 'Insurance & risk': '保险与风险' },
+    themes: { 'Payments & the cashless society': '支付与无现金社会', 'Banking resilience & disruptions': '银行韧性与中断', 'Crypto & the new retail investor': '加密货币与新一代散户', 'Insurance & risk': '保险与风险', 'Business failure & crisis': '企业失败与危机' },
     service: { leadership: '学术与项目领导', committees: '服务与委员会', referee: '匿名审稿', grants: '科研与教学资助' },
     grantRole: { Collaborator: '合作者', 'Co-PI': '共同负责人' },
     leadershipRoles: [
